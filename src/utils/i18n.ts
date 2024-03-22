@@ -11,13 +11,8 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   resources,
-  lng: "en_US",
-  fallbackLng: "en_US",
-  debug: true,
+  fallbackLng: "ko_KR",
   interpolation: { escapeValue: true },
-  returnObjects: true,
-  returnEmptyString: true,
-  returnNull: true,
 });
 
 export default i18n;
