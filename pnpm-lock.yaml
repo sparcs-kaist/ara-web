@@ -8,6 +8,9 @@ dependencies:
   '@vanilla-extract/css':
     specifier: ^1.14.1
     version: 1.14.1
+  '@vanilla-extract/sprinkles':
+    specifier: ^1.6.1
+    version: 1.6.1(@vanilla-extract/css@1.14.1)
   i18next:
     specifier: ^23.10.1
     version: 23.10.1
@@ -1417,6 +1420,14 @@ packages:
 
   /@vanilla-extract/private@1.0.3:
     resolution: {integrity: sha512-17kVyLq3ePTKOkveHxXuIJZtGYs+cSoev7BlP+Lf4916qfDhk/HBjvlYDe8egrea7LNPHKwSZJK/bzZC+Q6AwQ==}
+
+  /@vanilla-extract/sprinkles@1.6.1(@vanilla-extract/css@1.14.1):
+    resolution: {integrity: sha512-N/RGKwGAAidBupZ436RpuweRQHEFGU+mvAqBo8PRMAjJEmHoPDttV8RObaMLrJHWLqvX+XUMinHUnD0hFRQISw==}
+    peerDependencies:
+      '@vanilla-extract/css': ^1.0.0
+    dependencies:
+      '@vanilla-extract/css': 1.14.1
+    dev: false
 
   /@vanilla-extract/webpack-plugin@2.3.7(@types/node@20.11.17)(webpack@5.91.0):
     resolution: {integrity: sha512-xKhl7BUGqjj1eRzgASBcfKSvzIWGN1ndNT9ycUcfDz1AXZr6rok99LSj+Z2LqAnCGZGAiLsYzdQ5AYBABXV+vA==}
