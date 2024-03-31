@@ -10,14 +10,18 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.28.14",
     "@vanilla-extract/css": "^1.14.1",
     "@vanilla-extract/sprinkles": "^1.6.1",
+    "axios": "^1.6.8",
+    "camelcase": "^8.0.0",
     "i18next": "^23.10.1",
     "next": "14.1.0",
     "next-i18next": "^15.2.0",
     "react": "^18",
     "react-dom": "^18",
-    "react-i18next": "^14.1.0"
+    "react-i18next": "^14.1.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@commitlint/types": "^18.6.1",
