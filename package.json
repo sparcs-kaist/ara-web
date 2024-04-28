@@ -10,12 +10,14 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "^5.28.14",
     "@vanilla-extract/css": "^1.14.1",
     "@vanilla-extract/sprinkles": "^1.6.1",
     "axios": "^1.6.8",
     "camelcase": "^8.0.0",
     "i18next": "^23.10.1",
+    "jiti": "^1.21.0",
     "next": "14.1.0",
     "next-i18next": "^15.2.0",
     "react": "^18",
