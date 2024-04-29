@@ -1,3 +1,23 @@
 {
-    "hello": "아라에 오신걸 환영합니다!"
+  "hello": "안녕하세요",
+  "header": {
+    "all": "전체 글",
+    "top": "인기 글",
+    "talk": "자유게시판",
+    "calendar": "캘린더",
+    "group": {
+      "notice": "공지",
+      "clubs": "학생단체 및 동아리",
+      "money": "거래",
+      "communication": "소통"
+    }
+  },
+  "footer": {
+    "termsOfService": "이용약관",
+    "privacyPolicy": "개인정보처리방침",
+    "contributors": "만든 사람들",
+    "chatInquiry": "채팅 문의",
+    "caution": "본 서비스 내의 모든 게시물은 KAIST 학내 구성원만 접근 가능하며, 외부로의 무단 유출 및 전재를 금합니다.",
+    "contact": "기타 문의"
+  }
 }
