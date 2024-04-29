@@ -5,7 +5,6 @@ import CardContentRow from "@/components/atoms/cardContentRow/cardContentRow";
 import CardInfoWithCount from "@/components/atoms/cardInfoWithCount/cardInfoWithCount";
 import CardInfoWithBoard from "@/components/atoms/cardInfoWithBoard/cardInfoWithBoard";
 
-import * as styles from "./mainPageCard.css";
 import { title } from "process";
 import { board } from "@/components/atoms/cardInfoWithBoard/cardInfoWithBoard.css";
 

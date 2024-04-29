@@ -1,1 +1,1 @@
-export * from "./mainPageCard/mainPageCard";
+export * from "./MainPageCard/mainPageCard";
