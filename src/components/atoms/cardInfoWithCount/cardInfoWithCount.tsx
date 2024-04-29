@@ -1,4 +1,4 @@
-import * as styles from "./cardInfoWithCount.css";
+import * as styles from "./CardInfoWithCount.css";
 
 import { ThumbsUp, ThumbsDown, MessageSquare } from "react-feather";
 

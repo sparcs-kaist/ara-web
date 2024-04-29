@@ -1,4 +1,4 @@
-import * as styles from "./cardContent.css";
+import * as styles from "./CardContent.css";
 
 import { ChevronRight } from "react-feather";
 

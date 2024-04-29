@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
-import Card from "@/components/atoms/card/card";
-import CardContent from "@/components/atoms/cardContent/cardContent";
-import CardContentRow from "@/components/atoms/cardContentRow/cardContentRow";
-import CardInfoWithCount from "@/components/atoms/cardInfoWithCount/cardInfoWithCount";
-import CardInfoWithBoard from "@/components/atoms/cardInfoWithBoard/cardInfoWithBoard";
+import Card from "@/components/atoms/Card/Card";
+import CardContent from "@/components/atoms/CardContent/CardContent";
+import CardContentRow from "@/components/atoms/CardContentRow/CardContentRow";
+import CardInfoWithCount from "@/components/atoms/CardInfoWithCount/CardInfoWithCount";
+import CardInfoWithBoard from "@/components/atoms/CardInfoWithBoard/CardInfoWithBoard";
 
 import { title } from "process";
-import { board } from "@/components/atoms/cardInfoWithBoard/cardInfoWithBoard.css";
+import { board } from "@/components/atoms/CardInfoWithBoard/CardInfoWithBoard.css";
 
 const MainPageCard: React.FC = () => {
   const { t } = useTranslation();

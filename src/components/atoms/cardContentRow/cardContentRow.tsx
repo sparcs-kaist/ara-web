@@ -1,4 +1,4 @@
-import * as styles from "./cardContentRow.css";
+import * as styles from "./CardContentRow.css";
 
 import { Image } from "react-feather";
 
