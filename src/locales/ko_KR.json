@@ -1,17 +1,5 @@
 {
   "hello": "안녕하세요",
-  "header": {
-    "all": "전체 글",
-    "top": "인기 글",
-    "talk": "자유게시판",
-    "calendar": "캘린더",
-    "group": {
-      "notice": "공지",
-      "clubs": "학생단체 및 동아리",
-      "money": "거래",
-      "communication": "소통"
-    }
-  },
   "footer": {
     "termsOfService": "이용약관",
     "privacyPolicy": "개인정보처리방침",

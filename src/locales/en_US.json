@@ -1,17 +1,5 @@
 {
   "hello": "Hello",
-  "header": {
-    "all": "All",
-    "top": "Top Articles",
-    "talk": "Talk",
-    "calendar": "Calendar",
-    "group": {
-      "notice": "Notice",
-      "clubs": "Clubs",
-      "money": "Money",
-      "communication": "Communication"
-    }
-  },
   "footer": {
     "termsOfService": "Terms",
     "privacyPolicy": "Privacy",
