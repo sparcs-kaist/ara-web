@@ -22,7 +22,7 @@ export const responsiveProperties = defineProperties({
     marginBottom: vars.space,
     marginLeft: vars.space,
     marginRight: vars.space,
-    border: ["none"],
+    border: ["none", "solid"],
     borderWidth: { thin: "1px", thick: "2px" },
     borderRadius: vars.round,
     width: { fill: "100%", min: "1px" },
