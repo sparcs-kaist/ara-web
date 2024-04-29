@@ -2,7 +2,7 @@ import * as styles from "./CardInfoWithCount.css";
 
 import { ThumbsUp, ThumbsDown, MessageSquare } from "react-feather";
 
-const cardInfoWithCount: React.FC<{
+export const CardInfoWithCount: React.FC<{
   writer: string;
   like: number;
   dislike: number;
@@ -36,5 +36,3 @@ const cardInfoWithCount: React.FC<{
     </div>
   );
 };
-
-export default cardInfoWithCount;

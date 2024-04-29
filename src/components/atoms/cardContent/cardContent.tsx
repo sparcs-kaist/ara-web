@@ -2,7 +2,7 @@ import * as styles from "./CardContent.css";
 
 import { ChevronRight } from "react-feather";
 
-const CardContent: React.FC<{ title: string; link: string; children: React.ReactNode }> = ({
+export const CardContent: React.FC<{ title: string; link: string; children: React.ReactNode }> = ({
   title,
   link,
   children,
@@ -23,5 +23,3 @@ const CardContent: React.FC<{ title: string; link: string; children: React.React
     </div>
   );
 };
-
-export default CardContent;

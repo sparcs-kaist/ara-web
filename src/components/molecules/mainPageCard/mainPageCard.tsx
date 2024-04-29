@@ -1,14 +1,16 @@
 import { useTranslation } from "react-i18next";
-import Card from "@/components/atoms/Card/Card";
-import CardContent from "@/components/atoms/CardContent/CardContent";
-import CardContentRow from "@/components/atoms/CardContentRow/CardContentRow";
-import CardInfoWithCount from "@/components/atoms/CardInfoWithCount/CardInfoWithCount";
-import CardInfoWithBoard from "@/components/atoms/CardInfoWithBoard/CardInfoWithBoard";
+import {
+  Card,
+  CardContent,
+  CardContentRow,
+  CardInfoWithCount,
+  CardInfoWithBoard,
+} from "@/components/atoms";
 
 import { title } from "process";
 import { board } from "@/components/atoms/CardInfoWithBoard/CardInfoWithBoard.css";
 
-const MainPageCard: React.FC = () => {
+export const MainPageCard: React.FC = () => {
   const { t } = useTranslation();
   const hotArticles = [
     {
@@ -96,5 +98,3 @@ const MainPageCard: React.FC = () => {
     </Card>
   );
 };
-
-export default MainPageCard;

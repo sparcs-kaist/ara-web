@@ -2,7 +2,7 @@ import * as styles from "./CardInfoWithBoard.css";
 
 import { ThumbsUp, ThumbsDown, MessageSquare } from "react-feather";
 
-const cardInfoWithBoard: React.FC<{
+export const CardInfoWithBoard: React.FC<{
   board: string;
   writer: string;
   time: string;
@@ -19,5 +19,3 @@ const cardInfoWithBoard: React.FC<{
     </div>
   );
 };
-
-export default cardInfoWithBoard;

@@ -2,7 +2,7 @@ import * as styles from "./CardContentRow.css";
 
 import { Image } from "react-feather";
 
-const CardContentRow: React.FC<{
+export const CardContentRow: React.FC<{
   title: string;
   hasImage: boolean;
   isNumbered: boolean;
@@ -26,5 +26,3 @@ const CardContentRow: React.FC<{
     </div>
   );
 };
-
-export default CardContentRow;
