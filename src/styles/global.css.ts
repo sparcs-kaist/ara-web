@@ -52,6 +52,10 @@ globalStyle("ol, ul", {
   listStyle: "none",
 });
 
+globalStyle("hr", {
+  margin: 0,
+});
+
 globalStyle("a", {
   textDecoration: "none",
   color: "inherit",
