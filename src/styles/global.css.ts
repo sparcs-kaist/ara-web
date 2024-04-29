@@ -38,9 +38,11 @@ globalStyle("button, input, textarea", {
 });
 
 globalStyle("button", {
-  background: "inherit",
-  border: "none",
   borderRadius: 0,
+  border: "none",
+  boxShadow: "none",
+  background: "inherit",
+  color: "inherit",
   padding: 0,
   overflow: "visible",
   cursor: "pointer",
