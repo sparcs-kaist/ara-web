@@ -40,4 +40,4 @@ export const vars = createGlobalTheme(":root", {
     lg: "1.6rem",
     half: "50%",
   },
-});
+} as const);
