@@ -9,6 +9,9 @@ export const row = style([
     gap: "lg",
     padding: "none",
   }),
+  {
+    alignSelf: "stretch",
+  },
 ]);
 
 export const number = style([

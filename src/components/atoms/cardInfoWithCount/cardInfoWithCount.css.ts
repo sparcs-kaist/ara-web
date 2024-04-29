@@ -14,6 +14,14 @@ export const contentInfo = style([
   },
 ]);
 
+export const infoes = style([
+  sprinkles({
+    display: "flex",
+    alignItems: "center",
+    gap: "xs",
+  }),
+]);
+
 export const writer = style([
   sprinkles({
     color: "neutralLight1",
@@ -26,7 +34,7 @@ export const count = style([
     display: "flex",
     justifyContent: "flex-end",
     alignItems: "center",
-    gap: "md",
+    gap: "sm",
   }),
 ]);
 
@@ -34,7 +42,7 @@ export const likes = style([
   sprinkles({
     display: "flex",
     alignItems: "center",
-    gap: "sm",
+    gap: "xs",
     color: "brand",
   }),
 ]);
@@ -60,7 +68,7 @@ export const dislikes = style([
   sprinkles({
     display: "flex",
     alignItems: "center",
-    gap: "sm",
+    gap: "xs",
     color: "negative",
   }),
 ]);
@@ -86,7 +94,7 @@ export const comments = style([
   sprinkles({
     display: "flex",
     alignItems: "center",
-    gap: "sm",
+    gap: "xs",
     color: "neutral",
   }),
 ]);

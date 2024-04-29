@@ -10,7 +10,9 @@ const cardInfoWithCount: React.FC<{
 }> = ({ writer, like, dislike, comment }) => {
   return (
     <div className={styles.contentInfo}>
-      <div className={styles.writer}>{writer}</div>
+      <div className={styles.infoes}>
+        <div className={styles.writer}>{writer}</div>
+      </div>
       <div className={styles.count}>
         <div className={styles.likes}>
           <div className={styles.likeIcon}>
