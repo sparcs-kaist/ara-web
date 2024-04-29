@@ -15,15 +15,13 @@ export const responsiveProperties = defineProperties({
   },
   defaultCondition: "default",
   properties: {
-    display: ["none", "block", "inline", "inline-block", "flex", "grid"],
     position: ["relative", "absolute"],
-
+    display: ["none", "block", "inline", "inline-block", "flex", "grid", "WebkitBox"],
     flexDirection: ["row", "column"],
-    justifyContent: ["center", "space-around", "space-between"],
+    justifyContent: ["center", "space-around", "space-between", "flex-end"],
     alignItems: ["center", "baseline", "flex-start"],
     flex: [1, "auto"],
     gap: vars.space,
-
     marginTop: vars.space,
     marginBottom: vars.space,
     marginLeft: vars.space,
