@@ -1,5 +1,10 @@
 {
   "hello": "Hello",
+  "header": {
+    "all": "All",
+    "top": "Top Articles",
+    "calendar": "Calendar"
+  },
   "footer": {
     "termsOfService": "Terms",
     "privacyPolicy": "Privacy",

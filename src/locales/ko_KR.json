@@ -1,5 +1,10 @@
 {
   "hello": "안녕하세요",
+  "header": {
+    "all": "전체 글",
+    "top": "인기글",
+    "calendar": "캘린더"
+  },
   "footer": {
     "termsOfService": "이용약관",
     "privacyPolicy": "개인정보처리방침",
