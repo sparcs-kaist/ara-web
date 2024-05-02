@@ -31,7 +31,9 @@ export const vars = createGlobalTheme(":root", {
     md: "1.2rem",
     lg: "1.6rem",
     xl: "2.0rem",
-    xxl: "2.4rem",
+    "2xl": "2.4rem",
+    "3xl": "7.2rem",
+    auto: "auto",
   },
   round: {
     none: "0",
