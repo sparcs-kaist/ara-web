@@ -6,9 +6,10 @@ export const responsiveProperties = defineProperties({
   conditions: {
     mobile: { "@media": "screen and (max-width: 420px)" },
     tablet: { "@media": "screen and (max-width: 729px)" },
-    desktop: {},
+    desktop: { "@media": "screen and (max-width: 1080px)" },
+    wide: {},
   },
-  defaultCondition: "desktop",
+  defaultCondition: "wide",
   properties: {
     display: ["none", "block", "inline", "inline-block", "flex", "grid"],
 
