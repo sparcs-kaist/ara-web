@@ -4,12 +4,16 @@ import { vars } from "@/styles/theme.css";
 
 export const responsiveProperties = defineProperties({
   conditions: {
+    underTablet: { "@media": "screen and (max-width: 420px)" },
+    underDesktop: { "@media": "screen and (max-width: 729px)" },
+    underWide: { "@media": "screen and (max-width: 1080px)" },
     mobile: { "@media": "screen and (max-width: 420px)" },
-    tablet: { "@media": "screen and (max-width: 729px)" },
-    desktop: { "@media": "screen and (max-width: 1080px)" },
-    wide: {},
+    tablet: { "@media": "screen and (min-width: 421px) and (max-width: 729px)" },
+    desktop: { "@media": "screen and (min-width: 730px) and (max-width: 1080px)" },
+    wide: { "@media": "screen and (min-width: 1081px)" },
+    default: {},
   },
-  defaultCondition: "wide",
+  defaultCondition: "default",
   properties: {
     display: ["none", "block", "inline", "inline-block", "flex", "grid"],
 
