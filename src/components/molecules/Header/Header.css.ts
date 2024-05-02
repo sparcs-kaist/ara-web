@@ -1,7 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
 import { sprinkles } from "@/styles/sprinkles.css";
-import { vars } from "@/styles/theme.css";
 
 export const header = style([
   sprinkles({
@@ -18,24 +17,7 @@ export const header = style([
   },
 ]);
 
-export const logo = style([
-  sprinkles({
-    display: "flex",
-    alignItems: "center",
-  }),
-]);
-
-export const anchorList = style([
-  sprinkles({
-    display: "flex",
-    gap: "xl",
-  }),
-]);
-
-export const buttonList = style([
-  sprinkles({
-    display: "flex",
-    gap: "md",
-    alignItems: "center",
-  }),
-]);
+export const logo = sprinkles({
+  display: "flex",
+  alignItems: "center",
+});
