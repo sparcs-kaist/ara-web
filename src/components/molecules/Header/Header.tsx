@@ -32,56 +32,58 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className={styles.header}>
-      <Link href="#" className={styles.logo}>
-        <Image src="/images/ara-logo.svg" alt="Ara" width={45} height={25} />
-      </Link>
-      <Invisible desktop tablet mobile>
-        <nav className={listStyles.list({ gap: "xl" })}>
-          <Link href="#" className={Anchors.textAnchor}>
-            {t("header.all")}
-          </Link>
-          <Link href="#" className={Anchors.textAnchor}>
-            {t("header.top")}
-          </Link>
-          <Link href="#" className={Anchors.textAnchor}>
-            {t("header.calendar")}
-          </Link>
-          {boardGroups?.map((boardGroup) => (
-            <Dropdown
-              key={boardGroup.id}
-              title={i18n.language == "ko_KR" ? boardGroup.koName : boardGroup.enName}
-              isOpen={openDropdown == boardGroup.id}
-              onToggle={() => handleDropdown(boardGroup.id)}
-              boards={boardGroup.boards}
-            />
-          ))}
-        </nav>
-      </Invisible>
-      <Invisible wide>
-        <List>
-          <button className={Buttons.iconButton}>
-            <Edit size={20} />
-          </button>
-          <button className={Buttons.iconButton}>
-            <Bell size={20} />
-          </button>
-          <button className={Buttons.iconButton}>
-            <Menu size={20} />
-          </button>
-        </List>
-      </Invisible>
-      <Invisible underWide>
-        <List>
-          <button className={Anchors.outlinedAnchor}>게시물 작성하기</button>
-          <button className={Buttons.iconButton}>
-            <Bell size={20} />
-          </button>
-          <button className={Buttons.iconButton}>
-            <User size={20} />
-          </button>
-        </List>
-      </Invisible>
-    </header>
+    <div className={styles.headerWrapper}>
+      <header className={styles.header}>
+        <Link href="#" className={styles.logo}>
+          <Image src="/images/ara-logo.svg" alt="Ara" width={45} height={25} />
+        </Link>
+        <Invisible desktop tablet mobile>
+          <nav className={listStyles.list({ gap: "xl" })}>
+            <Link href="#" className={Anchors.textAnchor}>
+              {t("header.all")}
+            </Link>
+            <Link href="#" className={Anchors.textAnchor}>
+              {t("header.top")}
+            </Link>
+            <Link href="#" className={Anchors.textAnchor}>
+              {t("header.calendar")}
+            </Link>
+            {boardGroups?.map((boardGroup) => (
+              <Dropdown
+                key={boardGroup.id}
+                title={i18n.language == "ko_KR" ? boardGroup.koName : boardGroup.enName}
+                isOpen={openDropdown == boardGroup.id}
+                onToggle={() => handleDropdown(boardGroup.id)}
+                boards={boardGroup.boards}
+              />
+            ))}
+          </nav>
+        </Invisible>
+        <Invisible wide>
+          <List>
+            <button className={Buttons.iconButton}>
+              <Edit size={20} />
+            </button>
+            <button className={Buttons.iconButton}>
+              <Bell size={20} />
+            </button>
+            <button className={Buttons.iconButton}>
+              <Menu size={20} />
+            </button>
+          </List>
+        </Invisible>
+        <Invisible underWide>
+          <List>
+            <button className={Anchors.outlinedAnchor}>게시물 작성하기</button>
+            <button className={Buttons.iconButton}>
+              <Bell size={20} />
+            </button>
+            <button className={Buttons.iconButton}>
+              <User size={20} />
+            </button>
+          </List>
+        </Invisible>
+      </header>
+    </div>
   );
 };
