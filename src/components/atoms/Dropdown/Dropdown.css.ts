@@ -42,6 +42,7 @@ export const dropdownAnchor = style([
     paddingY: "xs",
     typeScale: "small",
     backgroundColor: "white",
+    borderRadius: "sm",
   }),
   {
     flex: 1,
