@@ -36,6 +36,10 @@ export const dropdownAnchorList = style([
   },
 ]);
 
+export const dropdownAnchorWrapper = sprinkles({
+  display: "flex",
+});
+
 export const dropdownAnchor = style([
   sprinkles({
     paddingX: "sm",

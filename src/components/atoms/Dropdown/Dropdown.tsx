@@ -28,9 +28,10 @@ export const Dropdown: React.FC<DropdownProps> = ({ title, isOpen, onToggle, boa
       {isOpen && (
         <ul className={styles.dropdownAnchorList}>
           {boards.map((board) => (
-            <li key={board.id} className={styles.dropdownAnchor}>
-              {/* 클릭 가능 영역 조정 */}
-              <Link href="#">{i18n.language == "ko_KR" ? board.koName : board.enName}</Link>
+            <li key={board.id} className={styles.dropdownAnchorWrapper}>
+              <Link href="#" className={styles.dropdownAnchor}>
+                {i18n.language == "ko_KR" ? board.koName : board.enName}
+              </Link>
             </li>
           ))}
         </ul>
