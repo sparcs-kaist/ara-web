@@ -74,7 +74,9 @@ export const Header: React.FC = () => {
         </Invisible>
         <Invisible underWide>
           <List>
-            <button className={Anchors.outlinedAnchor}>게시물 작성하기</button>
+            <Link href="#" className={Anchors.outlinedAnchor}>
+              게시물 작성하기
+            </Link>
             <button className={Buttons.iconButton}>
               <Bell size={20} />
             </button>
