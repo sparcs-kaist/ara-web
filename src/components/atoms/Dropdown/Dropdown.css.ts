@@ -5,7 +5,7 @@ import { vars } from "@/styles/theme.css";
 
 import Anchors from "../Anchor/Anchor.css";
 
-export const dropdown = style({
+export const dropdown = sprinkles({
   position: "relative",
 });
 
@@ -48,14 +48,10 @@ export const dropdownClose = style([
   },
 ]);
 
-export const dropdownAnchorListWrapper = style([
-  sprinkles({
-    paddingTop: "sm",
-  }),
-  {
-    position: "absolute",
-  },
-]);
+export const dropdownAnchorListWrapper = sprinkles({
+  position: "absolute",
+  paddingTop: "sm",
+});
 
 export const dropdownAnchorList = style([
   sprinkles({
