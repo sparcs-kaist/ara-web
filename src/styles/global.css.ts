@@ -33,6 +33,15 @@ globalStyle("button, input, textarea", {
   fontFamily: "inherit",
 });
 
+globalStyle("button", {
+  background: "inherit",
+  border: "none",
+  borderRadius: 0,
+  padding: 0,
+  overflow: "visible",
+  cursor: "pointer",
+});
+
 globalStyle("ol, ul", {
   listStyle: "none",
 });
