@@ -19,6 +19,11 @@ export const dropdownButton = style([
     background: "none",
     border: "none",
     cursor: "pointer",
+    selectors: {
+      '&[aria-checked="true"]': {
+        color: `${vars.color.brand}`,
+      },
+    },
   },
 ]);
 
@@ -49,7 +54,7 @@ export const dropdownClose = style([
 ]);
 
 export const dropdownAnchorListWrapper = sprinkles({
-  position: "absolute",
+  position: { wide: "absolute" },
   paddingTop: "sm",
 });
 

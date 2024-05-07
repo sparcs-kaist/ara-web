@@ -43,6 +43,7 @@ export const Header: React.FC = () => {
                 key={boardGroup.id}
                 title={i18n.language == "ko_KR" ? boardGroup.koName : boardGroup.enName}
                 boards={boardGroup.boards}
+                openOnHover={true}
               />
             ))}
           </nav>
