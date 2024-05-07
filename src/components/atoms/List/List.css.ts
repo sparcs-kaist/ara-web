@@ -16,5 +16,14 @@ export const list = recipe({
       lg: sprinkles({ gap: "lg" }),
       xl: sprinkles({ gap: "xl" }),
     },
+    direction: {
+      x: sprinkles({ flexDirection: "row" }),
+      y: sprinkles({ flexDirection: "column" }),
+    },
+    alignItems: {
+      center: sprinkles({ alignItems: "center" }),
+      baseline: sprinkles({ alignItems: "baseline" }),
+      "flex-start": sprinkles({ alignItems: "flex-start" }),
+    },
   },
 });
