@@ -16,8 +16,11 @@ import { useBoardGroups } from "@/lib/queries";
 import i18n from "@/utils/i18n";
 
 import * as styles from "./Header.css";
+import { Sidebar } from "./Sidebar";
 
 export const Header: React.FC = () => {
+  const [toggleSidebar, setToggleSidebar] = useState<boolean>(false);
+
   const boardGroups = useBoardGroups().data;
   const { t } = useTranslation();
 
@@ -56,7 +59,10 @@ export const Header: React.FC = () => {
             <button className={Buttons.iconButton}>
               <Bell size={20} />
             </button>
-            <button className={Buttons.iconButton}>
+            <button
+              className={Buttons.iconButton}
+              onClick={() => setToggleSidebar((curr) => !curr)}
+            >
               <Menu size={20} />
             </button>
           </List>
@@ -75,6 +81,9 @@ export const Header: React.FC = () => {
           </List>
         </Invisible>
       </header>
+      <Invisible wide>
+        {toggleSidebar && <Sidebar toggle={() => setToggleSidebar((curr) => !curr)} />}
+      </Invisible>
     </div>
   );
 };
