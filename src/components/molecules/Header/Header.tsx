@@ -52,8 +52,6 @@ export const Header: React.FC = () => {
               <Dropdown
                 key={boardGroup.id}
                 title={i18n.language == "ko_KR" ? boardGroup.koName : boardGroup.enName}
-                isOpen={openDropdown == boardGroup.id}
-                onToggle={() => handleDropdown(boardGroup.id)}
                 boards={boardGroup.boards}
               />
             ))}

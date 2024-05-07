@@ -11,21 +11,20 @@ import * as styles from "./Dropdown.css";
 
 interface DropdownProps {
   title: string;
-  isOpen: boolean;
-  onToggle: () => void;
   boards: BaseBoard[];
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({ title, isOpen, onToggle, boards }) => {
+export const Dropdown: React.FC<DropdownProps> = ({ title, boards }) => {
   const { t } = useTranslation();
 
   return (
     <div className={styles.dropdown}>
-      <button className={styles.dropdownButton} onClick={onToggle}>
+      <div className={styles.dropdownButton}>
         {t(title)}
-        {isOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-      </button>
-      {isOpen && (
+        <ChevronUp size={16} className={styles.dropdownOpen} />
+        <ChevronDown size={16} className={styles.dropdownClose} />
+      </div>
+      <div className={styles.dropdownAnchorListWrapper}>
         <ul className={styles.dropdownAnchorList}>
           {boards.map((board) => (
             <li key={board.id} className={styles.dropdownAnchorWrapper}>
@@ -35,7 +34,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ title, isOpen, onToggle, boa
             </li>
           ))}
         </ul>
-      )}
+      </div>
     </div>
   );
 };

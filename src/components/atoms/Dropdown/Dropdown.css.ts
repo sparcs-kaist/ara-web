@@ -5,7 +5,9 @@ import { vars } from "@/styles/theme.css";
 
 import Anchors from "../Anchor/Anchor.css";
 
-export const dropdown = style([]);
+export const dropdown = style({
+  position: "relative",
+});
 
 export const dropdownButton = style([
   Anchors.textAnchor,
@@ -20,19 +22,57 @@ export const dropdownButton = style([
   },
 ]);
 
-export const dropdownAnchorList = style([
+export const dropdownOpen = style([
+  sprinkles({
+    display: "none",
+  }),
+  {
+    selectors: {
+      [`${dropdown}:hover &`]: {
+        display: "flex",
+      },
+    },
+  },
+]);
+
+export const dropdownClose = style([
   sprinkles({
     display: "flex",
+  }),
+  {
+    selectors: {
+      [`${dropdown}:hover &`]: {
+        display: "none",
+      },
+    },
+  },
+]);
+
+export const dropdownAnchorListWrapper = style([
+  sprinkles({
+    paddingTop: "sm",
+  }),
+  {
+    position: "absolute",
+  },
+]);
+
+export const dropdownAnchorList = style([
+  sprinkles({
+    display: "none",
     flexDirection: "column",
     backgroundColor: "white",
     padding: "xs",
     borderRadius: "sm",
-    marginTop: "sm",
   }),
   {
-    position: "absolute",
     width: "15rem",
     boxShadow: `0rem 0.2rem 0.8rem 0rem ${vars.color.layerImage}`,
+    selectors: {
+      [`${dropdown}:hover &`]: {
+        display: "flex",
+      },
+    },
   },
 ]);
 
