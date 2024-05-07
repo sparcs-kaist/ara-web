@@ -1,5 +1,6 @@
 "use client";
 
+import clsx from "clsx";
 import Link from "next/link";
 import { ChevronDown, ChevronUp } from "react-feather";
 import { useTranslation } from "react-i18next";
@@ -55,7 +56,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
       </div>
       <div className={styles.dropdownAnchorListWrapper}>
         {isOpened && (
-          <ul className={openOnHover ? styles.dropdownAnchorList : ""}>
+          <ul className={clsx(openOnHover && styles.dropdownAnchorList)}>
             {boards.map((board) => (
               <li key={board.id} className={styles.dropdownAnchorWrapper}>
                 <Link href="#" className={styles.dropdownAnchor}>

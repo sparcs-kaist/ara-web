@@ -5,9 +5,18 @@ import { vars } from "@/styles/theme.css";
 
 import Anchors from "../Anchor/Anchor.css";
 
-export const dropdown = sprinkles({
-  position: "relative",
-});
+export const dropdown = style([
+  sprinkles({
+    position: "relative",
+  }),
+  {
+    "@media": {
+      "screen and (max-width: 1080px)": {
+        width: "100%",
+      },
+    },
+  },
+]);
 
 export const dropdownButton = style([
   Anchors.textAnchor,
