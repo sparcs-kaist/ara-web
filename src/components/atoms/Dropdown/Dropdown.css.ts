@@ -60,10 +60,10 @@ export const dropdownAnchorList = style([
     backgroundColor: "white",
     padding: "xs",
     borderRadius: "sm",
+    boxShadow: "banner",
   }),
   {
     width: "15rem",
-    boxShadow: `0rem 0.2rem 0.8rem 0rem ${vars.color.layerImage}`,
     selectors: {
       [`${dropdown}:hover &`]: {
         display: "flex",
