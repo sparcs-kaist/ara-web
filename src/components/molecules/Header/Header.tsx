@@ -18,18 +18,8 @@ import i18n from "@/utils/i18n";
 import * as styles from "./Header.css";
 
 export const Header: React.FC = () => {
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
-
   const boardGroups = useBoardGroups().data;
   const { t } = useTranslation();
-
-  const handleDropdown = (index: number) => {
-    if (openDropdown === index) {
-      setOpenDropdown(null);
-    } else {
-      setOpenDropdown(index);
-    }
-  };
 
   return (
     <div className={styles.headerWrapper}>
