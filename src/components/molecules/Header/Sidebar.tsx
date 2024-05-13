@@ -27,36 +27,46 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpened, toggle }) => {
     }
   };
 
+  const closeSidebar = () => {
+    if (isOpened) {
+      setOpenDropdown(null);
+      toggle();
+    }
+  };
+
   const boardGroups = useBoardGroups().data;
   const { t } = useTranslation();
 
   return (
-    <div className={clsx(styles.sidebar, isOpened && styles.opened)}>
-      <button className={styles.closeButton} onClick={toggle}>
-        <X size={20} />
-      </button>
-      <nav className={styles.navigation}>
-        <Link href="#" className={Anchors.textAnchor}>
-          {t("header.all")}
-        </Link>
-        <Link href="#" className={Anchors.textAnchor}>
-          {t("header.top")}
-        </Link>
-        <Link href="#" className={Anchors.textAnchor}>
-          {t("header.calendar")}
-        </Link>
-        <Divider dir="x" />
-        {boardGroups?.map((boardGroup) => (
-          <Dropdown
-            key={boardGroup.id}
-            title={i18n.language == "ko_KR" ? boardGroup.koName : boardGroup.enName}
-            boards={boardGroup.boards}
-            openOnHover={false}
-            isOpened={openDropdown == boardGroup.id}
-            onClick={() => handleDropdown(boardGroup.id)}
-          />
-        ))}
-      </nav>
-    </div>
+    <>
+      {isOpened && <div className={styles.backdrop} onClick={closeSidebar} />}
+      <div className={clsx(styles.sidebar, isOpened && styles.opened)}>
+        <button className={styles.closeButton} onClick={closeSidebar}>
+          <X size={20} />
+        </button>
+        <nav className={styles.navigation}>
+          <Link href="#" className={Anchors.textAnchor}>
+            {t("header.all")}
+          </Link>
+          <Link href="#" className={Anchors.textAnchor}>
+            {t("header.top")}
+          </Link>
+          <Link href="#" className={Anchors.textAnchor}>
+            {t("header.calendar")}
+          </Link>
+          <Divider dir="x" />
+          {boardGroups?.map((boardGroup) => (
+            <Dropdown
+              key={boardGroup.id}
+              title={i18n.language == "ko_KR" ? boardGroup.koName : boardGroup.enName}
+              boards={boardGroup.boards}
+              openOnHover={false}
+              isOpened={openDropdown == boardGroup.id}
+              onClick={() => handleDropdown(boardGroup.id)}
+            />
+          ))}
+        </nav>
+      </div>
+    </>
   );
 };

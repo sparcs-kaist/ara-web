@@ -15,9 +15,9 @@ export const sidebar = style([
   }),
   {
     top: 0,
+    bottom: 0,
     right: "-50rem",
     width: "20rem",
-    height: "100%",
     borderTopLeftRadius: "1.6rem",
     transition: "transform 0.2s ease-out",
   },
@@ -35,4 +35,14 @@ export const closeButton = style({
 
 export const navigation = style([
   listStyles.list({ gap: "xl", direction: "y", alignItems: "flex-start" }),
+  {
+    overflow: "scroll",
+  },
+]);
+
+export const backdrop = style([
+  sprinkles({
+    backgroundColor: "layerImage",
+  }),
+  { position: "fixed", top: 0, bottom: 0, right: 0, left: 0 },
 ]);
