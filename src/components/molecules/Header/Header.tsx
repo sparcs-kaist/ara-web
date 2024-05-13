@@ -82,7 +82,7 @@ export const Header: React.FC = () => {
         </Invisible>
       </header>
       <Invisible wide>
-        <Sidebar toggle={() => setIsSidebarOpened((curr) => !curr)} />
+        <Sidebar isOpened={isSidebarOpened} toggle={() => setIsSidebarOpened((curr) => !curr)} />
       </Invisible>
     </div>
   );

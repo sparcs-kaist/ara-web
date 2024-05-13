@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Link from "next/link";
 import { useState } from "react";
 import { X } from "react-feather";
@@ -12,9 +13,10 @@ import i18n from "@/utils/i18n";
 import * as styles from "./Sidebar.css";
 
 interface SidebarProps {
+  isOpened: boolean;
   toggle: () => void;
 }
-export const Sidebar: React.FC<SidebarProps> = ({ toggle }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ isOpened, toggle }) => {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   const handleDropdown = (index: number) => {
@@ -29,7 +31,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ toggle }) => {
   const { t } = useTranslation();
 
   return (
-    <div className={styles.sidebar}>
+    <div className={clsx(styles.sidebar, isOpened && styles.opened)}>
       <button className={styles.closeButton} onClick={toggle}>
         <X size={20} />
       </button>

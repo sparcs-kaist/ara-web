@@ -15,10 +15,17 @@ export const sidebar = style([
   }),
   {
     top: 0,
-    right: 0,
-    width: "30rem",
+    right: "-50rem",
+    width: "20rem",
     height: "100%",
     borderTopLeftRadius: "1.6rem",
+    transition: "transform 0.2s ease-out",
+  },
+]);
+
+export const opened = style([
+  {
+    transform: "translateX(-50rem)",
   },
 ]);
 
