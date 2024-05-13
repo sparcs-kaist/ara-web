@@ -19,7 +19,7 @@ import * as styles from "./Header.css";
 import { Sidebar } from "./Sidebar";
 
 export const Header: React.FC = () => {
-  const [toggleSidebar, setToggleSidebar] = useState<boolean>(false);
+  const [isSidebarOpened, setIsSidebarOpened] = useState<boolean>(false);
 
   const boardGroups = useBoardGroups().data;
   const { t } = useTranslation();
@@ -61,7 +61,7 @@ export const Header: React.FC = () => {
             </button>
             <button
               className={Buttons.iconButton}
-              onClick={() => setToggleSidebar((curr) => !curr)}
+              onClick={() => setIsSidebarOpened((curr) => !curr)}
             >
               <Menu size={20} />
             </button>
@@ -82,7 +82,7 @@ export const Header: React.FC = () => {
         </Invisible>
       </header>
       <Invisible wide>
-        {toggleSidebar && <Sidebar toggle={() => setToggleSidebar((curr) => !curr)} />}
+        <Sidebar toggle={() => setIsSidebarOpened((curr) => !curr)} />
       </Invisible>
     </div>
   );
