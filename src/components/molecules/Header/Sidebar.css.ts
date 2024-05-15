@@ -17,7 +17,7 @@ export const sidebar = style([
     top: 0,
     bottom: 0,
     right: "-50rem",
-    width: "20rem",
+    width: "min(60%, 20rem)",
     borderTopLeftRadius: "1.6rem",
     transition: "transform 0.2s ease-out",
   },
