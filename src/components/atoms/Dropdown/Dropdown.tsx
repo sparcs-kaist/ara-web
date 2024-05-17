@@ -60,7 +60,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
             {boards.map((board) => (
               <li key={board.id} className={styles.dropdownAnchorWrapper}>
                 <Link href="#" className={styles.dropdownAnchor}>
-                  {i18n.language == "ko_KR" ? board.koName : board.enName}
+                  {i18n.language === "ko_KR" ? board.koName : board.enName}
                 </Link>
               </li>
             ))}

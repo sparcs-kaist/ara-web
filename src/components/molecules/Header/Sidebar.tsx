@@ -58,10 +58,10 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpened, close }) => {
           {boardGroups?.map((boardGroup) => (
             <Dropdown
               key={boardGroup.id}
-              title={i18n.language == "ko_KR" ? boardGroup.koName : boardGroup.enName}
+              title={i18n.language === "ko_KR" ? boardGroup.koName : boardGroup.enName}
               boards={boardGroup.boards}
               openOnHover={false}
-              isOpened={openedGroupId == boardGroup.id}
+              isOpened={openedGroupId === boardGroup.id}
               onClick={() => handleDropdown(boardGroup.id)}
             />
           ))}

@@ -44,7 +44,7 @@ export const Header: React.FC = () => {
             {boardGroups?.map((boardGroup) => (
               <Dropdown
                 key={boardGroup.id}
-                title={i18n.language == "ko_KR" ? boardGroup.koName : boardGroup.enName}
+                title={i18n.language === "ko_KR" ? boardGroup.koName : boardGroup.enName}
                 boards={boardGroup.boards}
                 openOnHover={true}
               />
