@@ -14,9 +14,9 @@ import * as styles from "./Sidebar.css";
 
 interface SidebarProps {
   isOpened: boolean;
-  toggle: () => void;
+  close: () => void;
 }
-export const Sidebar: React.FC<SidebarProps> = ({ isOpened, toggle }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ isOpened, close }) => {
   const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
   const handleDropdown = (index: number) => {
@@ -30,7 +30,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpened, toggle }) => {
   const closeSidebar = () => {
     if (isOpened) {
       setOpenDropdown(null);
-      toggle();
+      close();
     }
   };
 
