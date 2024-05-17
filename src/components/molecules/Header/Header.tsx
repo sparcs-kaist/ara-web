@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 import { Bell, Edit, Menu, User } from "react-feather";
 import { useTranslation } from "react-i18next";
 
@@ -12,6 +11,7 @@ import { Dropdown } from "@/components/atoms/Dropdown/Dropdown";
 import { Invisible } from "@/components/atoms/Invisible/Invisible";
 import { List } from "@/components/atoms/List/List";
 import * as listStyles from "@/components/atoms/List/List.css";
+import { useBoolean } from "@/lib/hooks/useBoolean";
 import { useBoardGroups } from "@/lib/queries";
 import i18n from "@/utils/i18n";
 
@@ -19,7 +19,7 @@ import * as styles from "./Header.css";
 import { Sidebar } from "./Sidebar";
 
 export const Header: React.FC = () => {
-  const [isSidebarOpened, setIsSidebarOpened] = useState<boolean>(false);
+  const { value: isSidebarOpened, toggle: setIsSidebarOpened } = useBoolean(false);
 
   const boardGroups = useBoardGroups().data;
   const { t } = useTranslation();
@@ -59,10 +59,7 @@ export const Header: React.FC = () => {
             <button className={Buttons.iconButton}>
               <Bell size={20} />
             </button>
-            <button
-              className={Buttons.iconButton}
-              onClick={() => setIsSidebarOpened((curr) => !curr)}
-            >
+            <button className={Buttons.iconButton} onClick={setIsSidebarOpened}>
               <Menu size={20} />
             </button>
           </List>
@@ -82,7 +79,7 @@ export const Header: React.FC = () => {
         </Invisible>
       </header>
       <Invisible wide>
-        <Sidebar isOpened={isSidebarOpened} close={() => setIsSidebarOpened((curr) => !curr)} />
+        <Sidebar isOpened={isSidebarOpened} close={setIsSidebarOpened} />
       </Invisible>
     </div>
   );
