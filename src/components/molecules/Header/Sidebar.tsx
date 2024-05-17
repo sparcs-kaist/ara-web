@@ -17,19 +17,19 @@ interface SidebarProps {
   close: () => void;
 }
 export const Sidebar: React.FC<SidebarProps> = ({ isOpened, close }) => {
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [openedGroupId, setOpenedGroupId] = useState<number | null>(null);
 
   const handleDropdown = (index: number) => {
-    if (openDropdown === index) {
-      setOpenDropdown(null);
+    if (openedGroupId === index) {
+      setOpenedGroupId(null);
     } else {
-      setOpenDropdown(index);
+      setOpenedGroupId(index);
     }
   };
 
   const closeSidebar = () => {
     if (isOpened) {
-      setOpenDropdown(null);
+      setOpenedGroupId(null);
       close();
     }
   };
@@ -61,7 +61,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpened, close }) => {
               title={i18n.language == "ko_KR" ? boardGroup.koName : boardGroup.enName}
               boards={boardGroup.boards}
               openOnHover={false}
-              isOpened={openDropdown == boardGroup.id}
+              isOpened={openedGroupId == boardGroup.id}
               onClick={() => handleDropdown(boardGroup.id)}
             />
           ))}
