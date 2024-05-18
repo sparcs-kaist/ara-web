@@ -54,8 +54,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
         {t(title)}
         <Chevron openOnHover={openOnHover} isOpened={isOpened} />
       </div>
-      <div className={styles.dropdownAnchorListWrapper}>
-        {isOpened && (
+      {isOpened && (
+        <div className={styles.dropdownAnchorListWrapper}>
           <ul className={clsx(openOnHover && styles.dropdownAnchorList)}>
             {boards.map((board) => (
               <li key={board.id} className={styles.dropdownAnchorWrapper}>
@@ -65,8 +65,8 @@ export const Dropdown: React.FC<DropdownProps> = ({
               </li>
             ))}
           </ul>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
