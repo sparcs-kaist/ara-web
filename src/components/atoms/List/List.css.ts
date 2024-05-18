@@ -16,7 +16,7 @@ export const list = recipe({
       lg: sprinkles({ gap: "lg" }),
       xl: sprinkles({ gap: "xl" }),
     },
-    direction: {
+    dir: {
       x: sprinkles({ flexDirection: "row" }),
       y: sprinkles({ flexDirection: "column" }),
     },

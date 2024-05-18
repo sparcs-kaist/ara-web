@@ -34,7 +34,7 @@ export const closeButton = style({
 });
 
 export const navigation = style([
-  listStyles.list({ gap: "xl", direction: "y", alignItems: "flex-start" }),
+  listStyles.list({ gap: "xl", dir: "y", alignItems: "flex-start" }),
   {
     overflow: "scroll",
   },
