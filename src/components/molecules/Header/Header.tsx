@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import React, { Suspense } from "react";
 import { Bell, Edit, Menu, User } from "react-feather";
 import { useTranslation } from "react-i18next";
 
@@ -11,6 +12,7 @@ import { Dropdown } from "@/components/atoms/Dropdown/Dropdown";
 import { Invisible } from "@/components/atoms/Invisible/Invisible";
 import { List } from "@/components/atoms/List/List";
 import * as listStyles from "@/components/atoms/List/List.css";
+import { DropdownSkeleton } from "@/components/atoms/Skeleton/DropdownSkeleton";
 import { useBoolean } from "@/lib/hooks/useBoolean";
 import { useBoardGroups } from "@/lib/queries";
 import i18n from "@/utils/i18n";
@@ -18,10 +20,26 @@ import i18n from "@/utils/i18n";
 import * as styles from "./Header.css";
 import { Sidebar } from "./Sidebar";
 
+export const DropdownGroup: React.FC = () => {
+  const boardGroups = useBoardGroups().data;
+
+  return (
+    <>
+      {boardGroups?.map((boardGroup) => (
+        <Dropdown
+          key={boardGroup.id}
+          title={i18n.language === "ko_KR" ? boardGroup.koName : boardGroup.enName}
+          boards={boardGroup.boards}
+          openOnHover={true}
+        />
+      ))}
+    </>
+  );
+};
+
 export const Header: React.FC = () => {
   const { value: isSidebarOpened, toggle: setIsSidebarOpened } = useBoolean(false);
 
-  const boardGroups = useBoardGroups().data;
   const { t } = useTranslation();
 
   return (
@@ -41,14 +59,7 @@ export const Header: React.FC = () => {
             <Link href="#" className={Anchors.textAnchor}>
               {t("header.calendar")}
             </Link>
-            {boardGroups?.map((boardGroup) => (
-              <Dropdown
-                key={boardGroup.id}
-                title={i18n.language === "ko_KR" ? boardGroup.koName : boardGroup.enName}
-                boards={boardGroup.boards}
-                openOnHover={true}
-              />
-            ))}
+            <Suspense fallback={<DropdownSkeleton />}>{<DropdownGroup />}</Suspense>
           </nav>
         </Invisible>
         <Invisible wide>

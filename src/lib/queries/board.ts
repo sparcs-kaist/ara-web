@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 
 import { getBoardBySlug, getBoardGroupBySlug, getBoardGroups, getBoards } from "@/lib/api/board";
 import type { Board, BoardGroup } from "@/types";
@@ -20,7 +20,7 @@ export const useBoardBySlug = (slug: string) => {
 };
 
 export const useBoardGroups = () =>
-  useQuery({
+  useSuspenseQuery({
     queryKey: ["boardGroups"],
     queryFn: getBoardGroups,
   });

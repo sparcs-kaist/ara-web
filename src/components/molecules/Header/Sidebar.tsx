@@ -1,23 +1,33 @@
 import clsx from "clsx";
 import Link from "next/link";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { X } from "react-feather";
 import { useTranslation } from "react-i18next";
 
 import { Divider } from "@/components/atoms";
 import Anchors from "@/components/atoms/Anchor/Anchor.css";
 import { Dropdown } from "@/components/atoms/Dropdown/Dropdown";
+import { DropdownSkeleton } from "@/components/atoms/Skeleton/DropdownSkeleton";
 import { useBoardGroups } from "@/lib/queries";
 import i18n from "@/utils/i18n";
 
 import * as styles from "./Sidebar.css";
 
-interface SidebarProps {
+type SidebarProps = {
   isOpened: boolean;
   close: () => void;
-}
-export const Sidebar: React.FC<SidebarProps> = ({ isOpened, close }) => {
-  const [openedGroupId, setOpenedGroupId] = useState<number | null>(null);
+};
+
+type DropdownGroupProps = {
+  openedGroupId: number | null;
+  setOpenedGroupId: (index: number | null) => void;
+};
+
+export const DropdownGroup: React.FC<DropdownGroupProps> = ({
+  openedGroupId,
+  setOpenedGroupId,
+}) => {
+  const boardGroups = useBoardGroups().data;
 
   const handleDropdown = (index: number) => {
     if (openedGroupId === index) {
@@ -27,15 +37,32 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpened, close }) => {
     }
   };
 
+  return (
+    <>
+      {boardGroups?.map((boardGroup) => (
+        <Dropdown
+          key={boardGroup.id}
+          title={i18n.language === "ko_KR" ? boardGroup.koName : boardGroup.enName}
+          boards={boardGroup.boards}
+          openOnHover={false}
+          isOpened={openedGroupId === boardGroup.id}
+          onClick={() => handleDropdown(boardGroup.id)}
+        />
+      ))}
+    </>
+  );
+};
+
+export const Sidebar: React.FC<SidebarProps> = ({ isOpened, close }) => {
+  const [openedGroupId, setOpenedGroupId] = useState<number | null>(null);
+  const { t } = useTranslation();
+
   const closeSidebar = () => {
     if (isOpened) {
       setOpenedGroupId(null);
       close();
     }
   };
-
-  const boardGroups = useBoardGroups().data;
-  const { t } = useTranslation();
 
   return (
     <>
@@ -55,16 +82,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpened, close }) => {
             {t("header.calendar")}
           </Link>
           <Divider dir="x" />
-          {boardGroups?.map((boardGroup) => (
-            <Dropdown
-              key={boardGroup.id}
-              title={i18n.language === "ko_KR" ? boardGroup.koName : boardGroup.enName}
-              boards={boardGroup.boards}
-              openOnHover={false}
-              isOpened={openedGroupId === boardGroup.id}
-              onClick={() => handleDropdown(boardGroup.id)}
-            />
-          ))}
+          <Suspense fallback={<DropdownSkeleton dir="y" />}>
+            <DropdownGroup openedGroupId={openedGroupId} setOpenedGroupId={setOpenedGroupId} />
+          </Suspense>
         </nav>
       </div>
     </>
