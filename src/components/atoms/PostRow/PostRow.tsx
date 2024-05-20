@@ -1,3 +1,4 @@
+import React from "react";
 import { Image as ImageIcon } from "react-feather";
 import { MessageSquare, ThumbsDown, ThumbsUp } from "react-feather";
 import { useTranslation } from "react-i18next";
@@ -33,6 +34,55 @@ export const PostRow: React.FC<{
   PostInfo: PostRowProps;
 }> = ({ PostInfo }) => {
   const { t } = useTranslation();
+
+  const ConditionalSubInfo = () => {
+    const activeSubInfo = [];
+
+    if (PostInfo.isMessageToSchoolBoard !== false) {
+      activeSubInfo.push(
+        <div key="responseStatus">
+          <span className={styles.responseStatus}>{PostInfo.subInfo?.responseStatus}</span>
+        </div>
+      );
+    }
+
+    if (PostInfo.subInfo?.board !== undefined) {
+      activeSubInfo.push(
+        <div key="board">
+          <span className={styles.board}>{PostInfo.subInfo?.board}</span>
+        </div>
+      );
+    }
+
+    if (PostInfo.subInfo?.author !== undefined) {
+      activeSubInfo.push(<span key="author">{PostInfo.subInfo?.author}</span>);
+    }
+
+    if (PostInfo.subInfo?.views !== undefined) {
+      activeSubInfo.push(
+        <span key="views">
+          {t("view")}
+          {PostInfo.subInfo?.views}
+        </span>
+      );
+    }
+
+    if (PostInfo.subInfo?.date !== undefined) {
+      activeSubInfo.push(<span key="date">{PostInfo.subInfo?.date}</span>);
+    }
+
+    return (
+      <div className={styles.subInfo}>
+        {activeSubInfo.map((div, index) => (
+          <React.Fragment key={index}>
+            {div}
+            {index < activeSubInfo.length - 1 && " · "}
+          </React.Fragment>
+        ))}
+      </div>
+    );
+  };
+
   return (
     <div className={styles.row}>
       {PostInfo.hasRank ? (
@@ -48,28 +98,7 @@ export const PostRow: React.FC<{
           {PostInfo.hasImage ? <ImageIcon size={16} className={styles.titleImage} /> : null}
         </div>
         <div className={styles.infoes}>
-          <div className={styles.subInfo}>
-            {PostInfo.isMessageToSchoolBoard === false ? null : (
-              <div>
-                <span className={styles.responseStatus}>{PostInfo.subInfo?.responseStatus}</span>·
-              </div>
-            )}
-            {PostInfo.subInfo?.board === undefined ? null : (
-              <div>
-                <span className={styles.board}>{PostInfo.subInfo?.board}</span>·
-              </div>
-            )}
-            {PostInfo.subInfo?.author === undefined ? null : (
-              <span>{PostInfo.subInfo?.author} ·</span>
-            )}
-            {PostInfo.subInfo?.views === undefined ? null : (
-              <span>
-                {t("view")}
-                {PostInfo.subInfo?.views} ·
-              </span>
-            )}
-            {PostInfo.subInfo?.date === undefined ? null : <span>{PostInfo.subInfo?.date}</span>}
-          </div>
+          <ConditionalSubInfo />
           <div className={styles.count}>
             <div className={styles.likes}>
               <ThumbsUp size={14} />
