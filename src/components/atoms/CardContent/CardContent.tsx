@@ -1,6 +1,6 @@
-import * as styles from "./CardContent.css";
-
 import { ChevronRight } from "react-feather";
+
+import * as styles from "./CardContent.css";
 
 export const CardContent: React.FC<{ title: string; link: string; children: React.ReactNode }> = ({
   title,
@@ -15,9 +15,7 @@ export const CardContent: React.FC<{ title: string; link: string; children: Reac
     <div className={styles.box}>
       <div className={styles.content} onClick={movePage}>
         <div className={styles.title}>{title}</div>
-        <div className={styles.icon}>
-          <ChevronRight size={24} />
-        </div>
+        <ChevronRight size={24} className={styles.icon} />
       </div>
       <div className={styles.posts}>{children}</div>
     </div>

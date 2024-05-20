@@ -33,10 +33,6 @@ export const icon = style([
   sprinkles({
     color: "neutralLight1",
   }),
-  {
-    width: "2.4rem",
-    height: "2.4rem",
-  },
 ]);
 
 export const posts = style([
