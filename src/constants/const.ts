@@ -9,7 +9,7 @@ export const NameType = {
   NICKNAME_ANONYMOUS_REALNAME: 7,
 } as const;
 
-export const ResponseStatus = {
+export const ResponseStatusType = {
   BEFORE_UPVOTES: "before_upvotes",
   BEFORE_RESPONSE: "before_response",
   AFTER_RESPONSE: "after_response",

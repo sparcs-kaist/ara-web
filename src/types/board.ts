@@ -1,4 +1,4 @@
-import type { NameType } from "@/constants/enum";
+import type { NameType } from "@/constants/const";
 
 export type BaseBoard = {
   id: number;
@@ -9,7 +9,7 @@ export type BaseBoard = {
 
 export type Board = BaseBoard & {
   isReadonly: boolean;
-  nameType: NameType;
+  nameType: typeof NameType;
   group: BaseBoardGroup;
   topics: {
     id: number;

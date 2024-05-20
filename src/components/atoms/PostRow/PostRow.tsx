@@ -3,72 +3,76 @@ import { Image as ImageIcon } from "react-feather";
 import { MessageSquare, ThumbsDown, ThumbsUp } from "react-feather";
 import { useTranslation } from "react-i18next";
 
+import { ResponseStatusType } from "@/constants/const";
+
 import * as styles from "./PostRow.css";
 
 type PostRowProps = {
   id: number;
   title: string;
+
   hasImage: boolean; // default: false
   hasFile: boolean; // default: false
-  hasRank: boolean; // default: false
-  isMainPagePost: boolean; // default: false
-  isMessageToSchoolBoard: boolean; // default: false
+
   subInfo?: {
-    responseStatus?: boolean;
+    responseStatus?: typeof ResponseStatusType;
     board?: string;
     author: string;
     views?: number;
     date?: string;
   };
-  counts: {
+  counts?: {
     likes: number;
     dislikes: number;
     comments: number;
   };
-  rank?: number;
-  previewImage?: ImageBitmap;
-  profileImage?: ImageBitmap;
-};
+  user: {
+    profileImage: string; // URL
+  };
+} & (
+  | { type: "withRank"; rank: number }
+  | { type: "withPreview"; previewImage: string }
+  | { type: "board" }
+  | { type?: undefined }
+);
 
-export const PostRow: React.FC<{
-  PostInfo: PostRowProps;
-}> = ({ PostInfo }) => {
+export const PostRow: React.FC<PostRowProps> = (props) => {
   const { t } = useTranslation();
 
   const ConditionalSubInfo = () => {
     const activeSubInfo = [];
 
-    if (PostInfo.isMessageToSchoolBoard !== false) {
+    if (props.subInfo?.responseStatus !== undefined) {
       activeSubInfo.push(
         <div key="responseStatus">
-          <span className={styles.responseStatus}>{PostInfo.subInfo?.responseStatus}</span>
+          <span className={styles.responseStatus}>{String(props.subInfo?.responseStatus)}</span>
         </div>
       );
     }
 
-    if (PostInfo.subInfo?.board !== undefined) {
+    if (props.subInfo?.board !== undefined) {
       activeSubInfo.push(
         <div key="board">
-          <span className={styles.board}>{PostInfo.subInfo?.board}</span>
+          <span className={styles.board}>{props.subInfo?.board}</span>
         </div>
       );
     }
 
-    if (PostInfo.subInfo?.author !== undefined) {
-      activeSubInfo.push(<span key="author">{PostInfo.subInfo?.author}</span>);
+    if (props.subInfo?.author !== undefined) {
+      activeSubInfo.push(<span key="author">{props.subInfo?.author}</span>);
     }
 
-    if (PostInfo.subInfo?.views !== undefined) {
+    if (props.subInfo?.views !== undefined) {
       activeSubInfo.push(
         <span key="views">
           {t("view")}
-          {PostInfo.subInfo?.views}
+          {props.subInfo?.views}
         </span>
       );
     }
 
-    if (PostInfo.subInfo?.date !== undefined) {
-      activeSubInfo.push(<span key="date">{PostInfo.subInfo?.date}</span>);
+    if (props.subInfo?.date !== undefined) {
+      activeSubInfo.push(<span key="date">{props.subInfo?.date}</span>);
     }
 
     return (
@@ -85,34 +89,36 @@ export const PostRow: React.FC<{
 
   return (
     <div className={styles.row}>
-      {PostInfo.hasRank ? (
-        <div className={styles.rank}>{PostInfo.rank}</div>
-      ) : PostInfo.isMainPagePost ? null : PostInfo.hasImage ? (
+      {props.type === "withRank" ? (
+        <div className={styles.rank}>{props.rank}</div>
+      ) : props.type !== "board" ? null : props.hasImage ? (
         <img className={styles.previewImage}>previewImage</img>
       ) : (
         <img className={styles.profileImage}>profileImage</img>
       )}
       <div className={styles.content}>
         <div className={styles.title}>
-          <div className={styles.titleText}>{PostInfo.title}</div>
-          {PostInfo.hasImage ? <ImageIcon size={16} className={styles.titleImage} /> : null}
+          <div className={styles.titleText}>{props.title}</div>
+          {props.hasImage ? <ImageIcon size={16} className={styles.titleImage} /> : null}
         </div>
         <div className={styles.infoes}>
           <ConditionalSubInfo />
-          <div className={styles.count}>
-            <div className={styles.likes}>
-              <ThumbsUp size={14} />
-              <div className={styles.likeCount}>{PostInfo.counts.likes}</div>
+          {props.counts === undefined ? null : (
+            <div className={styles.count}>
+              <div className={styles.likes}>
+                <ThumbsUp size={14} />
+                <div className={styles.likeCount}>{props.counts?.likes}</div>
+              </div>
+              <div className={styles.dislikes}>
+                <ThumbsDown size={14} />
+                <div className={styles.dislikeCount}>{props.counts?.dislikes}</div>
+              </div>
+              <div className={styles.comments}>
+                <MessageSquare size={14} />
+                <div className={styles.commentCount}>{props.counts?.comments}</div>
+              </div>
             </div>
-            <div className={styles.dislikes}>
-              <ThumbsDown size={14} />
-              <div className={styles.dislikeCount}>{PostInfo.counts.dislikes}</div>
-            </div>
-            <div className={styles.comments}>
-              <MessageSquare size={14} />
-              <div className={styles.commentCount}>{PostInfo.counts.comments}</div>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </div>
