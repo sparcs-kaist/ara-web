@@ -3,7 +3,7 @@ import { Image as ImageIcon } from "react-feather";
 import { MessageSquare, ThumbsDown, ThumbsUp } from "react-feather";
 import { useTranslation } from "react-i18next";
 
-import { ResponseStatusType } from "@/constants/const";
+import type { ResponseStatusType } from "@/constants/const";
 
 import * as styles from "./PostRow.css";
 
