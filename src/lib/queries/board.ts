@@ -7,6 +7,7 @@ export const useBoards = () =>
   useQuery({
     queryKey: ["boards"],
     queryFn: getBoards,
+    staleTime: Infinity,
   });
 
 export const useBoardBySlug = (slug: string) => {
