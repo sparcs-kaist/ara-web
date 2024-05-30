@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ChevronRight } from "react-feather";
 
 import * as styles from "./CardContent.css";
@@ -7,16 +8,12 @@ export const CardContent: React.FC<{ title: string; link: string; children: Reac
   link,
   children,
 }) => {
-  function movePage() {
-    window.location.href = link;
-  }
-
   return (
     <div className={styles.box}>
-      <div className={styles.content} onClick={movePage}>
+      <Link href={link}>
         <div className={styles.title}>{title}</div>
         <ChevronRight size={24} className={styles.icon} />
-      </div>
+      </Link>
       <div className={styles.posts}>{children}</div>
     </div>
   );
