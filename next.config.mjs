@@ -11,14 +11,9 @@ const withVanillaExtract = createVanillaExtractPlugin();
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "via.placeholder.com", // for test
-      },
-      {
-        protocol: "https",
-        hostname: "sparcs-newara.s3.amazonaws.com",
-      },
+      { protocol: "https", hostname: "via.placeholder.com" },
+      { protocol: "https", hostname: "sparcs-newara.s3.amazonaws.com" },
+      { protocol: "https", hostname: "sparcs-newara-dev.s3.amazonaws.com" },
     ],
   },
 };

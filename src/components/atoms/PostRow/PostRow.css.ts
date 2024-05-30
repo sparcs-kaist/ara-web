@@ -25,10 +25,31 @@ export const rank = style([
   },
 ]);
 
-export const previewImage = style([
+export const previewImage = style({
+  position: "relative",
+  width: "3.6rem",
+  height: "3.6rem",
+});
+
+export const primaryImage = style([
+  sprinkles({
+    borderRadius: "little",
+  }),
   {
-    width: "3.6rem",
-    height: "3.6rem",
+    objectFit: "cover",
+  },
+]);
+
+export const secondaryImage = style([
+  sprinkles({
+    borderRadius: "rounded",
+  }),
+  {
+    position: "absolute",
+    top: "1.8rem",
+    left: "1.8rem",
+    boxShadow: "0px 2px 4px 0px rgba(0, 0, 0, 0.15)",
+    objectFit: "cover",
   },
 ]);
 

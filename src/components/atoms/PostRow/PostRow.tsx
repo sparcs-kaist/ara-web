@@ -9,7 +9,6 @@ import type { ResponseStatusVal } from "@/constants/const";
 import * as styles from "./PostRow.css";
 
 type PostRowProps = {
-  id: number;
   title: string;
 
   hasImage: boolean;
@@ -27,12 +26,9 @@ type PostRowProps = {
     dislikes: number;
     comments: number;
   };
-  user: {
-    profileImage: string; // URL
-  };
 } & (
   | { type: "withRank"; rank: number }
-  | { type: "withPreview"; previewImage: string }
+  | { type: "withPreview"; primaryImage: string; secondaryImage?: string }
   | { type?: undefined }
 );
 
@@ -43,15 +39,27 @@ export const PostRow: React.FC<PostRowProps> = (props) => {
     <div className={styles.row}>
       {props.type === "withRank" ? (
         <div className={styles.rank}>{props.rank}</div>
-      ) : (
-        <Image
-          width={"36"}
-          height={"36"}
-          src={props.type === "withPreview" ? props.previewImage : props.user.profileImage}
-          className={styles.previewImage}
-          alt={"preview image"}
-        />
-      )}
+      ) : props.type === "withPreview" ? (
+        <div className={styles.previewImage}>
+          <Image
+            src={props.primaryImage}
+            className={styles.primaryImage}
+            alt="preview"
+            width={36}
+            height={36}
+          />
+          {props.secondaryImage && (
+            <Image
+              src={props.secondaryImage}
+              className={styles.secondaryImage}
+              alt="preview"
+              width={20}
+              height={20}
+            />
+          )}
+        </div>
+      ) : null}
+
       <div className={styles.content}>
         <div className={styles.title}>
           <div className={styles.titleText}>{props.title}</div>

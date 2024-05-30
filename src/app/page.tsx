@@ -27,14 +27,9 @@ const Home: React.FC = () => {
         <PostRow
           type="withRank"
           rank={2}
-          id={1}
           title={"임의의 제목"}
           hasImage={true}
           hasFile={true}
-          user={{
-            profileImage:
-              "https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png",
-          }}
           subInfo={{
             board: "자유게시판",
             author: "조얌얌",
@@ -49,12 +44,11 @@ const Home: React.FC = () => {
         />
         <PostRow
           type="withPreview"
-          previewImage="https://via.placeholder.com/150"
-          id={1}
+          primaryImage="https://sparcs-newara-dev.s3.amazonaws.com/files/image_tbDKHLx.png"
+          secondaryImage="https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png"
           title={"임의의 제목"}
           hasImage={true}
           hasFile={true}
-          user={{ profileImage: "https://via.placeholder.com/150" }}
           subInfo={{
             responseStatus: ResponseStatus.AFTER_RESPONSE,
             author: "조얌얌",
@@ -63,14 +57,9 @@ const Home: React.FC = () => {
           }}
         />
         <PostRow
-          id={1}
           title={"임의의 제목"}
           hasImage={true}
           hasFile={true}
-          user={{
-            profileImage:
-              "https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png",
-          }}
           subInfo={{
             responseStatus: ResponseStatus.AFTER_RESPONSE,
             board: "자유게시판",
@@ -84,14 +73,9 @@ const Home: React.FC = () => {
           }}
         />
         <PostRow
-          id={1}
           title={"임의의 제목"}
           hasImage={true}
           hasFile={true}
-          user={{
-            profileImage:
-              "https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png",
-          }}
           subInfo={{
             responseStatus: ResponseStatus.AFTER_RESPONSE,
             board: "자유게시판",
@@ -101,6 +85,16 @@ const Home: React.FC = () => {
             likes: 10,
             dislikes: 2,
             comments: 3,
+          }}
+        />
+        <PostRow
+          title={"임의의 제목"}
+          hasImage={true}
+          hasFile={true}
+          subInfo={{
+            responseStatus: ResponseStatus.AFTER_RESPONSE,
+            board: "자유게시판",
+            author: "조얌얌",
           }}
         />
       </main>
