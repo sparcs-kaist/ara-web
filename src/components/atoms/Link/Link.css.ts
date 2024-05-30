@@ -3,11 +3,7 @@ import { style } from "@vanilla-extract/css";
 import { sprinkles } from "@/styles/sprinkles.css";
 import { vars } from "@/styles/theme.css";
 
-/**
- * Anchors are used to navigate between pages or sections of a page.
- */
-
-const textAnchor = style([
+export const textLink = style([
   sprinkles({
     paddingX: "xs",
     typeScale: "navigation",
@@ -19,17 +15,17 @@ const textAnchor = style([
   },
 ]);
 
-const outlinedAnchor = style([
+export const outlinedLink = style([
   sprinkles({
-    color: "brand",
-    paddingX: "md",
-    paddingY: "xs",
     border: "solid",
     borderWidth: "thin",
     borderColor: "brand",
+    borderRadius: "sm",
+    paddingX: "md",
+    paddingY: "xs",
     backgroundColor: "white",
     typeScale: "small",
-    borderRadius: "sm",
+    color: "brand",
   }),
   {
     cursor: "pointer",
@@ -39,10 +35,3 @@ const outlinedAnchor = style([
     },
   },
 ]);
-
-const Anchors = {
-  textAnchor,
-  outlinedAnchor,
-};
-
-export default Anchors;

@@ -6,8 +6,7 @@ import { Suspense } from "react";
 import { Bell, Edit, Menu, User } from "react-feather";
 import { useTranslation } from "react-i18next";
 
-import { IconButton } from "@/components/atoms";
-import Anchors from "@/components/atoms/Anchor/Anchor.css";
+import { IconButton, OutlinedLink, TextLink } from "@/components/atoms";
 import { Dropdown } from "@/components/atoms/Dropdown/Dropdown";
 import { Invisible } from "@/components/atoms/Invisible/Invisible";
 import { List } from "@/components/atoms/List/List";
@@ -50,15 +49,9 @@ export const Header: React.FC = () => {
         </Link>
         <Invisible desktop tablet mobile>
           <nav className={listStyles.list({ gap: "xl" })}>
-            <Link href="#" className={Anchors.textAnchor}>
-              {t("header.all")}
-            </Link>
-            <Link href="#" className={Anchors.textAnchor}>
-              {t("header.top")}
-            </Link>
-            <Link href="#" className={Anchors.textAnchor}>
-              {t("header.calendar")}
-            </Link>
+            <TextLink href="#">{t("header.all")}</TextLink>
+            <TextLink href="#">{t("header.top")}</TextLink>
+            <TextLink href="#">{t("header.calendar")}</TextLink>
             <Suspense fallback={<DropdownSkeleton />}>
               <DropdownGroup />
             </Suspense>
@@ -73,9 +66,7 @@ export const Header: React.FC = () => {
         </Invisible>
         <Invisible underWide>
           <List>
-            <Link href="#" className={Anchors.outlinedAnchor}>
-              게시물 작성하기
-            </Link>
+            <OutlinedLink href="#">게시물 작성하기</OutlinedLink>
             <IconButton icon={Bell} size={20} />
             <IconButton icon={User} size={20} />
           </List>

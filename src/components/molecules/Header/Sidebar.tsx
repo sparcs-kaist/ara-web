@@ -1,11 +1,9 @@
 import clsx from "clsx";
-import Link from "next/link";
 import { Suspense, useState } from "react";
 import { X } from "react-feather";
 import { useTranslation } from "react-i18next";
 
-import { Divider } from "@/components/atoms";
-import Anchors from "@/components/atoms/Anchor/Anchor.css";
+import { Divider, TextLink } from "@/components/atoms";
 import { Dropdown } from "@/components/atoms/Dropdown/Dropdown";
 import { DropdownSkeleton } from "@/components/atoms/Skeleton/DropdownSkeleton";
 import { useBoardGroups } from "@/lib/queries";
@@ -72,15 +70,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpened, close }) => {
           <X size={20} />
         </button>
         <nav className={styles.navigation}>
-          <Link href="#" className={Anchors.textAnchor}>
-            {t("header.all")}
-          </Link>
-          <Link href="#" className={Anchors.textAnchor}>
-            {t("header.top")}
-          </Link>
-          <Link href="#" className={Anchors.textAnchor}>
-            {t("header.calendar")}
-          </Link>
+          <TextLink href="#">{t("header.all")}</TextLink>
+          <TextLink href="#">{t("header.top")}</TextLink>
+          <TextLink href="#">{t("header.calendar")}</TextLink>
           <Divider dir="x" />
           <Suspense fallback={<DropdownSkeleton dir="y" />}>
             <DropdownGroup openedGroupId={openedGroupId} setOpenedGroupId={setOpenedGroupId} />

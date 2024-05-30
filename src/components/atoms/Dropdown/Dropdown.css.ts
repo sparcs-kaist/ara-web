@@ -1,9 +1,8 @@
 import { style } from "@vanilla-extract/css";
 
+import { textLink } from "@/components/atoms/Link/Link.css";
 import { sprinkles } from "@/styles/sprinkles.css";
 import { vars } from "@/styles/theme.css";
-
-import Anchors from "../Anchor/Anchor.css";
 
 export const dropdown = style([
   sprinkles({
@@ -19,7 +18,7 @@ export const dropdown = style([
 ]);
 
 export const dropdownButton = style([
-  Anchors.textAnchor,
+  textLink,
   sprinkles({
     display: "flex",
     alignItems: "center",
