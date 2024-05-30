@@ -107,19 +107,19 @@ export const PostRow: React.FC<PostRowProps> = (props) => {
         </div>
         <div className={styles.infoes}>
           <ConditionalSubInfo />
-          {props.counts === undefined ? null : (
+          {props.counts && (
             <div className={styles.count}>
               <div className={styles.likes}>
                 <ThumbsUp size={14} />
-                <div className={styles.likeCount}>{props.counts?.likes}</div>
+                <div className={styles.likeCount}>{props.counts.likes}</div>
               </div>
               <div className={styles.dislikes}>
                 <ThumbsDown size={14} />
-                <div className={styles.dislikeCount}>{props.counts?.dislikes}</div>
+                <div className={styles.dislikeCount}>{props.counts.dislikes}</div>
               </div>
               <div className={styles.comments}>
                 <MessageSquare size={14} />
-                <div className={styles.commentCount}>{props.counts?.comments}</div>
+                <div className={styles.commentCount}>{props.counts.comments}</div>
               </div>
             </div>
           )}

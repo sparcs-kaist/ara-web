@@ -48,7 +48,6 @@ const Home: React.FC = () => {
             comments: 3,
           }}
         />
-
         <PostRow
           type="withPreview"
           previewImage="https://via.placeholder.com/150"
@@ -70,7 +69,22 @@ const Home: React.FC = () => {
             comments: 3,
           }}
         />
-
+        <PostRow
+          type="withPreview"
+          previewImage="https://via.placeholder.com/150"
+          id={1}
+          title={"임의의 제목"}
+          hasImage={true}
+          hasFile={true}
+          user={{ profileImage: "https://via.placeholder.com/150" }}
+          subInfo={{
+            responseStatus: ResponseStatus.AFTER_RESPONSE,
+            board: "자유게시판",
+            author: "조얌얌",
+            views: 100,
+            date: "2021-09-01",
+          }}
+        />
         <PostRow
           id={1}
           title={"임의의 제목"}
