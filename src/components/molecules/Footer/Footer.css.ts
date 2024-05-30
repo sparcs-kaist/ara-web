@@ -16,9 +16,15 @@ export const footer = style([
   },
 ]);
 
-export const linkList = sprinkles({
-  display: "flex",
-});
+export const linkList = style([
+  sprinkles({
+    display: "flex",
+    justifyContent: "center",
+  }),
+  {
+    flexWrap: "wrap",
+  },
+]);
 
 export const link = sprinkles({
   display: "inline-block",

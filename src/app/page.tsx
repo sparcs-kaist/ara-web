@@ -2,7 +2,7 @@
 
 import { useTranslation } from "react-i18next";
 
-import { Header } from "@/components/molecules";
+import { Footer, Header } from "@/components/molecules";
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -14,6 +14,7 @@ const Home: React.FC = () => {
   return (
     <main>
       <Header />
+      <Footer />
     </main>
   );
 };
