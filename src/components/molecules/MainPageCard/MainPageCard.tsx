@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 
 import { Card, CardContent, PostRow } from "@/components/atoms";
-import { ResponseStatusType } from "@/constants/const";
 
 export const MainPageCard: React.FC = () => {
   const { t } = useTranslation();

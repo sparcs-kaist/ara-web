@@ -4,7 +4,7 @@ import { Image as ImageIcon } from "react-feather";
 import { MessageSquare, ThumbsDown, ThumbsUp } from "react-feather";
 import { useTranslation } from "react-i18next";
 
-import type { ResponseStatusType } from "@/constants/const";
+import type { ResponseStatusVal } from "@/constants/const";
 
 import * as styles from "./PostRow.css";
 
@@ -16,7 +16,7 @@ type PostRowProps = {
   hasFile: boolean; // default: false
 
   subInfo?: {
-    responseStatus?: ResponseStatusType;
+    responseStatus?: ResponseStatusVal;
     board?: string;
     author: string;
     views?: number;
