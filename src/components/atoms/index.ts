@@ -5,3 +5,4 @@ export * from "./Dropdown/Dropdown";
 export * from "./Invisible/Invisible";
 export * from "./Link/Link";
 export * from "./List/List";
+export * from "./PostRow/PostRow";

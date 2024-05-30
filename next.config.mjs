@@ -8,6 +8,19 @@ jiti("./src/env");
 const withVanillaExtract = createVanillaExtractPlugin();
 
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "via.placeholder.com", // for test
+      },
+      {
+        protocol: "https",
+        hostname: "sparcs-newara.s3.amazonaws.com",
+      },
+    ],
+  },
+};
 
 export default withVanillaExtract(nextConfig);

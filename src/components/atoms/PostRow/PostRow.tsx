@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import { Image as ImageIcon } from "react-feather";
 import { MessageSquare, ThumbsDown, ThumbsUp } from "react-feather";
@@ -32,7 +33,6 @@ type PostRowProps = {
 } & (
   | { type: "withRank"; rank: number }
   | { type: "withPreview"; previewImage: string }
-  | { type: "board" }
   | { type?: undefined }
 );
 
@@ -91,10 +91,14 @@ export const PostRow: React.FC<PostRowProps> = (props) => {
     <div className={styles.row}>
       {props.type === "withRank" ? (
         <div className={styles.rank}>{props.rank}</div>
-      ) : props.type !== "board" ? null : props.hasImage ? (
-        <img className={styles.previewImage}>previewImage</img>
       ) : (
-        <img className={styles.profileImage}>profileImage</img>
+        <Image
+          width={"36"}
+          height={"36"}
+          src={props.type === "withPreview" ? props.previewImage : props.user.profileImage}
+          className={styles.previewImage}
+          alt={"preview image"}
+        />
       )}
       <div className={styles.content}>
         <div className={styles.title}>

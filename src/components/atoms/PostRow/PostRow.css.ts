@@ -31,13 +31,6 @@ export const previewImage = style([
   },
 ]);
 
-export const profileImage = style([
-  {
-    width: "3.6rem",
-    height: "3.6rem",
-  },
-]);
-
 export const content = style([
   sprinkles({
     display: "flex",
