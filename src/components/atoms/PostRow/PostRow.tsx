@@ -15,7 +15,7 @@ type PostRowProps = {
   hasFile: boolean; // default: false
 
   subInfo?: {
-    responseStatus?: typeof ResponseStatusType;
+    responseStatus?: ResponseStatusType;
     board?: string;
     author: string;
     views?: number;
