@@ -1,6 +1,7 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 import { sprinkles } from "@/styles/sprinkles.css";
+import { vars } from "@/styles/theme.css";
 
 export const row = style([
   sprinkles({
@@ -84,6 +85,12 @@ export const subInfo = sprinkles({
   gap: "xs",
   color: "neutralLight1",
   typeScale: "smallCaption",
+});
+
+globalStyle(`${subInfo} > span:not(:last-child)::after`, {
+  content: "·",
+  marginLeft: "0.5rem",
+  color: vars.color.neutralLight1,
 });
 
 export const responseStatus = sprinkles({
