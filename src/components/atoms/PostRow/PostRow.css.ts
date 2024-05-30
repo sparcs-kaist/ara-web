@@ -53,13 +53,11 @@ export const content = style([
   },
 ]);
 
-export const title = style([
-  sprinkles({
-    display: "flex",
-    alignItems: "center",
-    gap: "xs",
-  }),
-]);
+export const title = sprinkles({
+  display: "flex",
+  alignItems: "center",
+  gap: "xs",
+});
 
 export const titleText = style([
   sprinkles({
@@ -75,11 +73,9 @@ export const titleText = style([
   },
 ]);
 
-export const titleImage = style([
-  sprinkles({
-    color: "neutralLight1",
-  }),
-]);
+export const titleImage = sprinkles({
+  color: "neutralLight1",
+});
 
 export const infoes = style([
   sprinkles({
@@ -93,81 +89,61 @@ export const infoes = style([
   },
 ]);
 
-export const subInfo = style([
-  sprinkles({
-    display: "flex",
-    alignItems: "center",
-    gap: "xs",
-    color: "neutralLight1",
-    typeScale: "smallCaption",
-  }),
-]);
+export const subInfo = sprinkles({
+  display: "flex",
+  alignItems: "center",
+  gap: "xs",
+  color: "neutralLight1",
+  typeScale: "smallCaption",
+});
 
-export const responseStatus = style([
-  sprinkles({
-    color: "brand",
-  }),
-]);
+export const responseStatus = sprinkles({
+  color: "brand",
+});
 
-export const board = style([
-  sprinkles({
-    color: "neutralSub",
-  }),
-]);
+export const board = sprinkles({
+  color: "neutralSub",
+});
 
-export const count = style([
-  sprinkles({
-    display: "flex",
-    justifyContent: "flex-end",
-    alignItems: "center",
-    gap: "sm",
-  }),
-]);
+export const count = sprinkles({
+  display: "flex",
+  justifyContent: "flex-end",
+  alignItems: "center",
+  gap: "sm",
+});
 
-export const likes = style([
-  sprinkles({
-    display: "flex",
-    alignItems: "center",
-    gap: "xs",
-    color: "brand",
-  }),
-]);
+export const likes = sprinkles({
+  display: "flex",
+  alignItems: "center",
+  gap: "xs",
+  color: "brand",
+});
 
-export const likeCount = style([
-  sprinkles({
-    color: "brand",
-    typeScale: "smallCaption",
-  }),
-]);
+export const likeCount = sprinkles({
+  color: "brand",
+  typeScale: "smallCaption",
+});
 
-export const dislikes = style([
-  sprinkles({
-    display: "flex",
-    alignItems: "center",
-    gap: "xs",
-    color: "negative",
-  }),
-]);
+export const dislikes = sprinkles({
+  display: "flex",
+  alignItems: "center",
+  gap: "xs",
+  color: "negative",
+});
 
-export const dislikeCount = style([
-  sprinkles({
-    color: "negative",
-    typeScale: "smallCaption",
-  }),
-]);
+export const dislikeCount = sprinkles({
+  color: "negative",
+  typeScale: "smallCaption",
+});
 
-export const comments = style([
-  sprinkles({
-    display: "flex",
-    alignItems: "center",
-    gap: "xs",
-    color: "neutral",
-  }),
-]);
+export const comments = sprinkles({
+  display: "flex",
+  alignItems: "center",
+  gap: "xs",
+  color: "neutral",
+});
 
-export const commentCount = style([
-  sprinkles({
-    color: "neutral",
-    typeScale: "smallCaption",
-  }),
-]);
+export const commentCount = sprinkles({
+  color: "neutral",
+  typeScale: "smallCaption",
+});

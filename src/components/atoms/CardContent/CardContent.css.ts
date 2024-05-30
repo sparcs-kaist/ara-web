@@ -14,26 +14,20 @@ export const box = style([
   },
 ]);
 
-export const content = style([
-  sprinkles({
-    display: "flex",
-    alignItems: "center",
-    gap: "sm",
-  }),
-]);
+export const content = sprinkles({
+  display: "flex",
+  alignItems: "center",
+  gap: "sm",
+});
 
-export const title = style([
-  sprinkles({
-    color: "neutral",
-    typeScale: "bannerTitle",
-  }),
-]);
+export const title = sprinkles({
+  color: "neutral",
+  typeScale: "bannerTitle",
+});
 
-export const icon = style([
-  sprinkles({
-    color: "neutralLight1",
-  }),
-]);
+export const icon = sprinkles({
+  color: "neutralLight1",
+});
 
 export const posts = style([
   sprinkles({
