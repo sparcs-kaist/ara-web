@@ -17,14 +17,10 @@ export const row = style([
 export const rank = style([
   sprinkles({
     color: "brand",
+    typeScale: "bannerTitle",
   }),
   {
     width: "1.6rem",
-    fontFamily: "Pretendard",
-    fontSize: "2.2rem",
-    fontStyle: "normal",
-    fontWeight: "700",
-    lineHeight: "normal",
   },
 ]);
 
