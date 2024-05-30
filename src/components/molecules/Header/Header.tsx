@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import React, { Suspense } from "react";
+import { Suspense } from "react";
 import { Bell, Edit, Menu, User } from "react-feather";
 import { useTranslation } from "react-i18next";
 
+import { IconButton } from "@/components/atoms";
 import Anchors from "@/components/atoms/Anchor/Anchor.css";
-import Buttons from "@/components/atoms/Button/Button.css";
 import { Dropdown } from "@/components/atoms/Dropdown/Dropdown";
 import { Invisible } from "@/components/atoms/Invisible/Invisible";
 import { List } from "@/components/atoms/List/List";
@@ -25,7 +25,7 @@ export const DropdownGroup: React.FC = () => {
 
   return (
     <>
-      {boardGroups?.map((boardGroup) => (
+      {boardGroups.map((boardGroup) => (
         <Dropdown
           key={boardGroup.id}
           title={i18n.language === "ko_KR" ? boardGroup.koName : boardGroup.enName}
@@ -59,20 +59,16 @@ export const Header: React.FC = () => {
             <Link href="#" className={Anchors.textAnchor}>
               {t("header.calendar")}
             </Link>
-            <Suspense fallback={<DropdownSkeleton />}>{<DropdownGroup />}</Suspense>
+            <Suspense fallback={<DropdownSkeleton />}>
+              <DropdownGroup />
+            </Suspense>
           </nav>
         </Invisible>
         <Invisible wide>
           <List>
-            <button className={Buttons.iconButton}>
-              <Edit size={20} />
-            </button>
-            <button className={Buttons.iconButton}>
-              <Bell size={20} />
-            </button>
-            <button className={Buttons.iconButton} onClick={setIsSidebarOpened}>
-              <Menu size={20} />
-            </button>
+            <IconButton icon={Edit} size={20} />
+            <IconButton icon={Bell} size={20} />
+            <IconButton icon={Menu} size={20} onClick={setIsSidebarOpened} />
           </List>
         </Invisible>
         <Invisible underWide>
@@ -80,12 +76,8 @@ export const Header: React.FC = () => {
             <Link href="#" className={Anchors.outlinedAnchor}>
               게시물 작성하기
             </Link>
-            <button className={Buttons.iconButton}>
-              <Bell size={20} />
-            </button>
-            <button className={Buttons.iconButton}>
-              <User size={20} />
-            </button>
+            <IconButton icon={Bell} size={20} />
+            <IconButton icon={User} size={20} />
           </List>
         </Invisible>
       </header>
