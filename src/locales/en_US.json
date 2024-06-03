@@ -1,3 +1,16 @@
 {
-    "hello": "Welcome to ARA!"
+  "hello": "Hello",
+  "header": {
+    "all": "All",
+    "top": "Top Articles",
+    "calendar": "Calendar"
+  },
+  "footer": {
+    "termsOfService": "Terms",
+    "privacyPolicy": "Privacy",
+    "contributors": "Contributors",
+    "chatInquiry": "Chat Inquiry",
+    "caution": "All posts within this service are only accessible to KAIST community members, and unauthorized distribution or reproduction outside is prohibited.",
+    "contact": "Contact"
+  }
 }

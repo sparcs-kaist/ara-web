@@ -4,17 +4,23 @@ import { vars } from "@/styles/theme.css";
 
 export const responsiveProperties = defineProperties({
   conditions: {
+    underTablet: { "@media": "screen and (max-width: 420px)" },
+    underDesktop: { "@media": "screen and (max-width: 729px)" },
+    underWide: { "@media": "screen and (max-width: 1080px)" },
     mobile: { "@media": "screen and (max-width: 420px)" },
-    tablet: { "@media": "screen and (max-width: 729px)" },
-    desktop: {},
+    tablet: { "@media": "screen and (min-width: 421px) and (max-width: 729px)" },
+    desktop: { "@media": "screen and (min-width: 730px) and (max-width: 1080px)" },
+    wide: { "@media": "screen and (min-width: 1081px)" },
+    default: {},
   },
-  defaultCondition: "desktop",
+  defaultCondition: "default",
   properties: {
     display: ["none", "block", "inline", "inline-block", "flex", "grid"],
+    position: ["relative", "absolute"],
 
     flexDirection: ["row", "column"],
     justifyContent: ["center", "space-around", "space-between"],
-    alignItems: ["center", "baseline"],
+    alignItems: ["center", "baseline", "flex-start"],
     flex: [1, "auto"],
     gap: vars.space,
 
@@ -22,7 +28,7 @@ export const responsiveProperties = defineProperties({
     marginBottom: vars.space,
     marginLeft: vars.space,
     marginRight: vars.space,
-    border: ["none"],
+    border: ["none", "solid"],
     borderWidth: { thin: "1px", thick: "2px" },
     borderRadius: vars.round,
     width: { fill: "100%", min: "1px" },

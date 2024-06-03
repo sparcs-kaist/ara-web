@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "react-loading-skeleton/dist/skeleton.css";
 
 import Providers from "@/app/providers";
 import { pretendard } from "@/styles/fonts";

@@ -1,5 +1,9 @@
 import { globalStyle } from "@vanilla-extract/css";
 
+globalStyle("*", {
+  boxSizing: "border-box",
+});
+
 globalStyle(
   `html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -16,8 +20,8 @@ globalStyle(
   time, mark, audio, video`,
   {
     margin: 0,
-    padding: 0,
     border: 0,
+    padding: 0,
   }
 );
 
@@ -33,6 +37,15 @@ globalStyle("button, input, textarea", {
   fontFamily: "inherit",
 });
 
+globalStyle("button", {
+  background: "inherit",
+  border: "none",
+  borderRadius: 0,
+  padding: 0,
+  overflow: "visible",
+  cursor: "pointer",
+});
+
 globalStyle("ol, ul", {
   listStyle: "none",
 });
@@ -40,4 +53,9 @@ globalStyle("ol, ul", {
 globalStyle("a", {
   textDecoration: "none",
   color: "inherit",
+});
+
+globalStyle("dialog", {
+  border: "none",
+  padding: 0,
 });

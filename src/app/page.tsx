@@ -2,6 +2,8 @@
 
 import { useTranslation } from "react-i18next";
 
+import { Header } from "@/components/molecules";
+
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
   const switchLocale = () => {
@@ -11,8 +13,7 @@ const Home: React.FC = () => {
 
   return (
     <main>
-      <div>{t("hello")}</div>
-      <button onClick={switchLocale}>{i18n.language}</button>
+      <Header />
     </main>
   );
 };

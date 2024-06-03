@@ -1,6 +1,6 @@
 import type { NameType } from "@/constants/enum";
 
-type BaseBoard = {
+export type BaseBoard = {
   id: number;
   slug: string;
   koName: string;

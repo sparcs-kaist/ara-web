@@ -1,4 +1,4 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient, useSuspenseQuery } from "@tanstack/react-query";
 
 import { getBoardBySlug, getBoardGroupBySlug, getBoardGroups, getBoards } from "@/lib/api/board";
 import type { Board, BoardGroup } from "@/types";
@@ -16,13 +16,15 @@ export const useBoardBySlug = (slug: string) => {
     queryFn: () => getBoardBySlug(slug),
     initialData: () =>
       queryClient.getQueryData<Board[]>(["boards"])?.find((board) => board.slug === slug),
+    staleTime: Infinity,
   });
 };
 
 export const useBoardGroups = () =>
-  useQuery({
+  useSuspenseQuery({
     queryKey: ["boardGroups"],
     queryFn: getBoardGroups,
+    staleTime: Infinity,
   });
 
 export const useBoardGroupBySlug = (slug: string) => {
@@ -34,5 +36,6 @@ export const useBoardGroupBySlug = (slug: string) => {
       queryClient
         .getQueryData<BoardGroup[]>(["boardGroups"])
         ?.find((boardGroup) => boardGroup.slug === slug),
+    staleTime: Infinity,
   });
 };
