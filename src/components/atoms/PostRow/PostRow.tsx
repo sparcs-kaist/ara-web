@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Image from "next/image";
 import React from "react";
 import { Image as ImageIcon } from "react-feather";
@@ -28,7 +29,7 @@ type PostRowProps = {
   };
 } & (
   | { type: "withRank"; rank: number }
-  | { type: "withPreview"; primaryImage: string; secondaryImage?: string }
+  | { type: "withPreview"; previewImage?: string; profileImage: string }
   | { type?: undefined }
 );
 
@@ -42,15 +43,15 @@ export const PostRow: React.FC<PostRowProps> = (props) => {
       ) : props.type === "withPreview" ? (
         <div className={styles.previewImage}>
           <Image
-            src={props.primaryImage}
-            className={styles.primaryImage}
+            src={props.previewImage ?? props.profileImage}
+            className={props.previewImage ? styles.primaryImage : styles.roundedPrimaryImage}
             alt="preview"
             width={36}
             height={36}
           />
-          {props.secondaryImage && (
+          {props.previewImage && (
             <Image
-              src={props.secondaryImage}
+              src={props.profileImage}
               className={styles.secondaryImage}
               alt="preview"
               width={20}

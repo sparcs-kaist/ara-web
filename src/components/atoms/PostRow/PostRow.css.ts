@@ -40,18 +40,19 @@ export const primaryImage = style([
   },
 ]);
 
-export const secondaryImage = style([
-  sprinkles({
-    borderRadius: "rounded",
-  }),
-  {
-    position: "absolute",
-    top: "1.8rem",
-    left: "1.8rem",
-    boxShadow: "0px 2px 4px 0px rgba(0, 0, 0, 0.15)",
-    objectFit: "cover",
-  },
-]);
+export const roundedPrimaryImage = style({
+  borderRadius: "50%",
+  objectFit: "cover",
+});
+
+export const secondaryImage = style({
+  borderRadius: "50%",
+  position: "absolute",
+  top: "1.8rem",
+  left: "1.8rem",
+  boxShadow: "0px 2px 4px 0px rgba(0, 0, 0, 0.15)",
+  objectFit: "cover",
+});
 
 export const content = style([
   sprinkles({

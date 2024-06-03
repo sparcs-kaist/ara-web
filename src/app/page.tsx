@@ -24,79 +24,106 @@ const Home: React.FC = () => {
         </button>
         <button onClick={switchLocale}>{i18n.language}</button>
         <MainPageCard />
-        <PostRow
-          type="withRank"
-          rank={2}
-          title={"임의의 제목"}
-          hasImage={true}
-          hasFile={true}
-          subInfo={{
-            board: "자유게시판",
-            author: "조얌얌",
-            views: 100,
-            date: "2021-09-01",
-          }}
-          counts={{
-            likes: 10,
-            dislikes: 2,
-            comments: 3,
-          }}
-        />
-        <PostRow
-          type="withPreview"
-          primaryImage="https://sparcs-newara-dev.s3.amazonaws.com/files/image_tbDKHLx.png"
-          secondaryImage="https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png"
-          title={"임의의 제목"}
-          hasImage={true}
-          hasFile={true}
-          subInfo={{
-            responseStatus: ResponseStatus.BEFORE_UPVOTES,
-            author: "조얌얌",
-            views: 100,
-            date: "2021-09-01",
-          }}
-        />
-        <PostRow
-          title={"임의의 제목"}
-          hasImage={true}
-          hasFile={true}
-          subInfo={{
-            responseStatus: ResponseStatus.BEFORE_RESPONSE,
-            board: "자유게시판",
-            author: "조얌얌",
-            date: "2021-09-01",
-          }}
-          counts={{
-            likes: 10,
-            dislikes: 2,
-            comments: 3,
-          }}
-        />
-        <PostRow
-          title={"임의의 제목"}
-          hasImage={true}
-          hasFile={true}
-          subInfo={{
-            responseStatus: ResponseStatus.AFTER_RESPONSE,
-            board: "자유게시판",
-            author: "조얌얌",
-          }}
-          counts={{
-            likes: 10,
-            dislikes: 2,
-            comments: 3,
-          }}
-        />
-        <PostRow
-          title={"임의의 제목"}
-          hasImage={true}
-          hasFile={true}
-          subInfo={{
-            responseStatus: ResponseStatus.AFTER_RESPONSE,
-            board: "자유게시판",
-            author: "조얌얌",
-          }}
-        />
+        <div style={{ width: "40rem", padding: "2rem" }}>
+          <PostRow
+            type="withRank"
+            rank={2}
+            title={"임의의 제목"}
+            hasImage={true}
+            hasFile={true}
+            subInfo={{
+              board: "자유게시판",
+              author: "조얌얌",
+              views: 100,
+              date: "2021-09-01",
+            }}
+            counts={{
+              likes: 10,
+              dislikes: 2,
+              comments: 3,
+            }}
+          />
+          <PostRow
+            type="withPreview"
+            previewImage="https://sparcs-newara-dev.s3.amazonaws.com/files/image_tbDKHLx.png"
+            profileImage="https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png"
+            title={"임의의 제목"}
+            hasImage={true}
+            hasFile={true}
+            subInfo={{
+              responseStatus: ResponseStatus.BEFORE_UPVOTES,
+              author: "조얌얌",
+              views: 100,
+              date: "2021-09-01",
+            }}
+          />
+          <PostRow
+            type="withPreview"
+            previewImage="https://via.placeholder.com/150"
+            profileImage="https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png"
+            title={"임의의 제목"}
+            hasImage={true}
+            hasFile={true}
+            subInfo={{
+              responseStatus: ResponseStatus.BEFORE_UPVOTES,
+              author: "조얌얌",
+              views: 100,
+              date: "2021-09-01",
+            }}
+          />
+          <PostRow
+            type="withPreview"
+            profileImage="https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png"
+            title={"임의의 제목"}
+            hasImage={true}
+            hasFile={true}
+            subInfo={{
+              responseStatus: ResponseStatus.BEFORE_UPVOTES,
+              author: "조얌얌",
+              views: 100,
+              date: "2021-09-01",
+            }}
+          />
+          <PostRow
+            type="withPreview"
+            profileImage="https://via.placeholder.com/150"
+            title={"임의의 제목"}
+            hasImage={true}
+            hasFile={true}
+            subInfo={{
+              responseStatus: ResponseStatus.BEFORE_UPVOTES,
+              author: "조얌얌",
+              views: 100,
+              date: "2021-09-01",
+            }}
+          />
+          <PostRow
+            title={"임의의 제목"}
+            hasImage={true}
+            hasFile={true}
+            subInfo={{
+              responseStatus: ResponseStatus.BEFORE_RESPONSE,
+              board: "자유게시판",
+              author: "조얌얌",
+              date: "2021-09-01",
+            }}
+            counts={{
+              likes: 10,
+              dislikes: 2,
+              comments: 3,
+            }}
+          />
+          <PostRow
+            title={"임의의 제목"}
+            hasImage={true}
+            hasFile={true}
+            subInfo={{
+              responseStatus: ResponseStatus.AFTER_RESPONSE,
+              board: "자유게시판",
+              author: "조얌얌",
+            }}
+          />
+        </div>
       </main>
       <Footer />
     </>
