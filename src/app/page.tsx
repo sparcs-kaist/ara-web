@@ -45,8 +45,8 @@ const Home: React.FC = () => {
           />
           <PostRow
             type="withPreview"
-            previewImage="https://sparcs-newara-dev.s3.amazonaws.com/files/image_tbDKHLx.png"
-            profileImage="https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png"
+            previewImage="https://via.placeholder.com/150"
+            profileImage="https://via.placeholder.com/150"
             title={"임의의 제목"}
             hasImage={true}
             hasFile={true}
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
           <PostRow
             type="withPreview"
             previewImage="https://via.placeholder.com/150"
-            profileImage="https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png"
+            profileImage="https://via.placeholder.com/150"
             title={"임의의 제목"}
             hasImage={true}
             hasFile={true}
@@ -73,7 +73,7 @@ const Home: React.FC = () => {
           />
           <PostRow
             type="withPreview"
-            profileImage="https://sparcs-newara.s3.amazonaws.com/user_profiles/default_pictures/blue-default2.png"
+            profileImage="https://via.placeholder.com/150"
             title={"임의의 제목"}
             hasImage={true}
             hasFile={true}
