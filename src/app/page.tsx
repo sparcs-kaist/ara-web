@@ -61,7 +61,7 @@ const Home: React.FC = () => {
             type="withPreview"
             previewImage="https://via.placeholder.com/150"
             profileImage="https://via.placeholder.com/150"
-            title={"임의의 제목"}
+            title={"엄청나게 긴 임의의 제목을 한 번 써보려고 합니다 이 정도면 됐으려나 아닌가요"}
             hasImage={true}
             hasFile={true}
             subInfo={{

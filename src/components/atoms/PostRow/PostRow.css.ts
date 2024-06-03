@@ -68,6 +68,7 @@ export const content = style([
   }),
   {
     flex: "1 0 0",
+    overflow: "hidden",
   },
 ]);
 
@@ -75,17 +76,16 @@ export const title = sprinkles({
   display: "flex",
   alignItems: "center",
   gap: "xs",
+  width: "fill",
 });
 
 export const titleText = style([
   sprinkles({
-    display: "WebkitBox",
     color: "neutral",
     typeScale: "default",
   }),
   {
-    WebkitBoxOrient: "vertical",
-    WebkitLineClamp: 1,
+    whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
   },

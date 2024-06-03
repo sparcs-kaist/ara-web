@@ -16,7 +16,7 @@ export const responsiveProperties = defineProperties({
   defaultCondition: "default",
   properties: {
     position: ["relative", "absolute"],
-    display: ["none", "block", "inline", "inline-block", "flex", "grid", "WebkitBox"],
+    display: ["none", "block", "inline", "inline-block", "flex", "grid"],
     flexDirection: ["row", "column"],
     justifyContent: ["center", "space-around", "space-between", "flex-end"],
     alignItems: ["center", "baseline", "flex-start"],
