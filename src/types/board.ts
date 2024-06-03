@@ -18,11 +18,13 @@ const baseTransformer = ({ id, slug, koName, enName }: Base) => ({
   },
 });
 
+export const topicSchema = baseSchema;
+
 const rawBoardSchema = baseSchema.extend({
   isReadonly: z.boolean(),
   nameType: z.nativeEnum(NameType),
   group: baseSchema,
-  topics: baseSchema.array(),
+  topics: topicSchema.array(),
   bannerImage: z.string().url(),
   koBannerDescription: z.string(),
   enBannerDescription: z.string(),
