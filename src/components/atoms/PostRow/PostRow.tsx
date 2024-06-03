@@ -44,7 +44,9 @@ export const PostRow: React.FC<PostRowProps> = (props) => {
         <div className={styles.previewImage}>
           <Image
             src={props.previewImage ?? props.profileImage}
-            className={props.previewImage ? styles.primaryImage : styles.roundedPrimaryImage}
+            className={styles.primaryImage({
+              borderRadius: props.previewImage ? "little" : "full",
+            })}
             alt="preview"
             width={36}
             height={36}

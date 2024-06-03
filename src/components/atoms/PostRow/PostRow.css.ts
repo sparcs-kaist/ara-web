@@ -1,4 +1,5 @@
 import { globalStyle, style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 import { sprinkles } from "@/styles/sprinkles.css";
 import { vars } from "@/styles/theme.css";
@@ -31,18 +32,23 @@ export const previewImage = style({
   height: "3.6rem",
 });
 
-export const primaryImage = style([
-  sprinkles({
-    borderRadius: "little",
-  }),
-  {
+export const primaryImage = recipe({
+  base: style({
     objectFit: "cover",
+  }),
+  variants: {
+    borderRadius: {
+      little: sprinkles({
+        borderRadius: "little",
+      }),
+      full: style({
+        borderRadius: "50%",
+      }),
+    },
   },
-]);
-
-export const roundedPrimaryImage = style({
-  borderRadius: "50%",
-  objectFit: "cover",
+  defaultVariants: {
+    borderRadius: "little",
+  },
 });
 
 export const secondaryImage = style({
