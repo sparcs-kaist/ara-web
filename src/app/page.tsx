@@ -2,7 +2,7 @@
 
 import { useTranslation } from "react-i18next";
 
-import { Header } from "@/components/molecules";
+import { Footer, Header } from "@/components/molecules";
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -14,6 +14,15 @@ const Home: React.FC = () => {
   return (
     <main>
       <Header />
+      <main>
+        <button
+          onClick={() => switchLocale()}
+          style={{ borderRadius: "0.6rem", padding: "0.4rem 0.8rem", backgroundColor: "#f0f0f0" }}
+        >
+          Switch Locale
+        </button>
+      </main>
+      <Footer />
     </main>
   );
 };
