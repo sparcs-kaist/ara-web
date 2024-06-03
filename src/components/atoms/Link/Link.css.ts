@@ -20,7 +20,7 @@ export const outlinedLink = style([
     border: "solid",
     borderWidth: "thin",
     borderColor: "brand",
-    borderRadius: "sm",
+    borderRadius: "little",
     paddingX: "md",
     paddingY: "xs",
     backgroundColor: "white",

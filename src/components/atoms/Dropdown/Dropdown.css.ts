@@ -72,7 +72,7 @@ export const dropdownAnchorList = style([
     flexDirection: "column",
     backgroundColor: "white",
     padding: "xs",
-    borderRadius: "sm",
+    borderRadius: "little",
     boxShadow: "banner",
   }),
   {
@@ -95,7 +95,7 @@ export const dropdownAnchor = style([
     paddingY: "xs",
     typeScale: "small",
     backgroundColor: "white",
-    borderRadius: "sm",
+    borderRadius: "little",
   }),
   {
     flex: 1,
