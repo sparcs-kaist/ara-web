@@ -5,11 +5,10 @@ import { sprinkles } from "@/styles/sprinkles.css";
 export const list = recipe({
   base: sprinkles({
     display: "flex",
-    gap: "md",
-    alignItems: "center",
   }),
   variants: {
     gap: {
+      none: sprinkles({ gap: "none" }),
       xs: sprinkles({ gap: "xs" }),
       sm: sprinkles({ gap: "sm" }),
       md: sprinkles({ gap: "md" }),
@@ -20,10 +19,9 @@ export const list = recipe({
       x: sprinkles({ flexDirection: "row" }),
       y: sprinkles({ flexDirection: "column" }),
     },
-    alignItems: {
-      center: sprinkles({ alignItems: "center" }),
-      baseline: sprinkles({ alignItems: "baseline" }),
-      "flex-start": sprinkles({ alignItems: "flex-start" }),
-    },
+  },
+  defaultVariants: {
+    gap: "none",
+    dir: "y",
   },
 });

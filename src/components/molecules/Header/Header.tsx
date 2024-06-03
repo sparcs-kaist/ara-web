@@ -3,41 +3,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
-import { Bell, Edit, Menu, User } from "react-feather";
+import { Bell, Edit, Menu, User, X } from "react-feather";
 import { useTranslation } from "react-i18next";
 
-import { IconButton, OutlinedLink, TextLink } from "@/components/atoms";
-import { Dropdown } from "@/components/atoms/Dropdown/Dropdown";
-import { Invisible } from "@/components/atoms/Invisible/Invisible";
-import { List } from "@/components/atoms/List/List";
-import * as listStyles from "@/components/atoms/List/List.css";
-import { DropdownSkeleton } from "@/components/atoms/Skeleton/DropdownSkeleton";
-import { useBoolean } from "@/lib/hooks/useBoolean";
-import { useBoardGroups } from "@/lib/queries";
-import i18n from "@/utils/i18n";
+import {
+  Dialog,
+  Divider,
+  IconButton,
+  Invisible,
+  Item,
+  List,
+  OutlinedLink,
+  TextLink,
+} from "@/components/atoms";
+import { useDialog } from "@/lib/hooks";
 
+import { ClickableDropdowns, DropdownSkeletons, HoverDropdowns } from "./Dropdown";
 import * as styles from "./Header.css";
-import { Sidebar } from "./Sidebar";
-
-export const DropdownGroup: React.FC = () => {
-  const boardGroups = useBoardGroups().data;
-
-  return (
-    <>
-      {boardGroups.map((boardGroup) => (
-        <Dropdown
-          key={boardGroup.id}
-          title={i18n.language === "ko_KR" ? boardGroup.koName : boardGroup.enName}
-          boards={boardGroup.boards}
-          openOnHover={true}
-        />
-      ))}
-    </>
-  );
-};
 
 export const Header: React.FC = () => {
-  const { value: isSidebarOpened, toggle: setIsSidebarOpened } = useBoolean(false);
+  const { ref: dialogRef, open, close } = useDialog();
 
   const { t } = useTranslation();
 
@@ -48,32 +33,80 @@ export const Header: React.FC = () => {
           <Image src="/images/ara-logo.svg" alt="Ara" width={45} height={25} />
         </Link>
         <Invisible desktop tablet mobile>
-          <nav className={listStyles.list({ gap: "xl" })}>
-            <TextLink href="#">{t("header.all")}</TextLink>
-            <TextLink href="#">{t("header.top")}</TextLink>
-            <TextLink href="#">{t("header.calendar")}</TextLink>
-            <Suspense fallback={<DropdownSkeleton />}>
-              <DropdownGroup />
-            </Suspense>
+          <nav>
+            <List dir="x" gap="xl">
+              <Item>
+                <TextLink href="#" text={t("header.all")} />
+              </Item>
+              <Item>
+                <TextLink href="#" text={t("header.top")} />
+              </Item>
+              <Item>
+                <TextLink href="#" text={t("header.calendar")} />
+              </Item>
+              <Suspense fallback={<DropdownSkeletons num={5} />}>
+                <HoverDropdowns />
+              </Suspense>
+            </List>
           </nav>
         </Invisible>
         <Invisible wide>
-          <List>
-            <IconButton icon={Edit} size={20} />
-            <IconButton icon={Bell} size={20} />
-            <IconButton icon={Menu} size={20} onClick={setIsSidebarOpened} />
+          <List dir="x" gap="md">
+            <Item>
+              <IconButton icon={Edit} size={20} />
+            </Item>
+            <Item>
+              <IconButton icon={Bell} size={20} />
+            </Item>
+            <Item>
+              <IconButton icon={Menu} size={20} onClick={open} />
+            </Item>
           </List>
         </Invisible>
         <Invisible underWide>
-          <List>
-            <OutlinedLink href="#">게시물 작성하기</OutlinedLink>
-            <IconButton icon={Bell} size={20} />
-            <IconButton icon={User} size={20} />
+          <List dir="x" gap="md">
+            <Item>
+              <OutlinedLink href="#">게시물 작성하기</OutlinedLink>
+            </Item>
+            <Item>
+              <IconButton icon={Bell} size={20} />
+            </Item>
+            <Item>
+              <IconButton icon={User} size={20} />
+            </Item>
           </List>
         </Invisible>
       </header>
       <Invisible wide>
-        <Sidebar isOpened={isSidebarOpened} close={setIsSidebarOpened} />
+        <Dialog
+          ref={dialogRef}
+          close={close}
+          className={styles.dialog}
+          innerClassName={styles.dialogInner}
+        >
+          <div className={styles.closeButtonWrapper}>
+            <IconButton icon={X} size={20} onClick={close} />
+          </div>
+          <nav className={styles.navigation}>
+            <List gap="xl">
+              <Item>
+                <TextLink href="#" text={t("header.all")} />
+              </Item>
+              <Item>
+                <TextLink href="#" text={t("header.top")} />
+              </Item>
+              <Item>
+                <TextLink href="#" text={t("header.calendar")} />
+              </Item>
+              <Item>
+                <Divider />
+              </Item>
+              <Suspense fallback={<DropdownSkeletons num={5} />}>
+                <ClickableDropdowns />
+              </Suspense>
+            </List>
+          </nav>
+        </Dialog>
       </Invisible>
     </div>
   );

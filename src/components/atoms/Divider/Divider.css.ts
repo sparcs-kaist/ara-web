@@ -1,15 +1,20 @@
+import { recipe } from "@vanilla-extract/recipes";
+
 import { sprinkles } from "@/styles/sprinkles.css";
 
-export const divX = sprinkles({
-  border: "none",
-  width: "fill",
-  height: "min",
-  backgroundColor: "neutralLight2",
-});
-
-export const divY = sprinkles({
-  border: "none",
-  width: "min",
-  height: "fill",
-  backgroundColor: "neutralLight2",
+export const divider = recipe({
+  base: sprinkles({
+    margin: "none",
+    border: "none",
+    backgroundColor: "neutralLight2",
+  }),
+  variants: {
+    dir: {
+      x: sprinkles({ width: "fill", height: "min" }),
+      y: sprinkles({ width: "min", height: "fill" }),
+    },
+  },
+  defaultVariants: {
+    dir: "x",
+  },
 });

@@ -1,18 +1,22 @@
 import { forwardRef } from "react";
 
 type DialogProps = Omit<React.DialogHTMLAttributes<HTMLDialogElement>, "ref" | "onMouseDown"> & {
-  children?: React.ReactNode;
+  close: () => void;
+  children: React.ReactNode;
+  innerClassName?: string;
 };
 
-export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(({ children, ...props }, ref) => (
-  <dialog
-    ref={ref}
-    onMouseDown={(event) => {
-      if (typeof ref !== "function" && event.target === ref?.current) ref.current.close();
-    }}
-    {...props}
-  >
-    {children}
-  </dialog>
-));
+export const Dialog = forwardRef<HTMLDialogElement, DialogProps>(
+  ({ close, children, innerClassName, ...props }, ref) => (
+    <dialog
+      ref={ref}
+      onMouseDown={(event) => {
+        if (typeof ref !== "function" && event.target === ref?.current) close();
+      }}
+      {...props}
+    >
+      <div className={innerClassName}>{children}</div>
+    </dialog>
+  )
+);
 Dialog.displayName = "Dialog";

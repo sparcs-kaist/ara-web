@@ -16,6 +16,7 @@ export const useBoardBySlug = (slug: string) => {
     queryFn: () => getBoardBySlug(slug),
     initialData: () =>
       queryClient.getQueryData<Board[]>(["boards"])?.find((board) => board.slug === slug),
+    staleTime: Infinity,
   });
 };
 
@@ -23,6 +24,7 @@ export const useBoardGroups = () =>
   useSuspenseQuery({
     queryKey: ["boardGroups"],
     queryFn: getBoardGroups,
+    staleTime: Infinity,
   });
 
 export const useBoardGroupBySlug = (slug: string) => {
@@ -34,5 +36,6 @@ export const useBoardGroupBySlug = (slug: string) => {
       queryClient
         .getQueryData<BoardGroup[]>(["boardGroups"])
         ?.find((boardGroup) => boardGroup.slug === slug),
+    staleTime: Infinity,
   });
 };

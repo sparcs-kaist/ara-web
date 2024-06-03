@@ -3,17 +3,17 @@ import React from "react";
 
 import * as styles from "./List.css";
 
-interface ListProps {
-  gap?: "xs" | "sm" | "md" | "lg" | "xl";
-  children: React.ReactNode;
-}
-
-export const List: React.FC<ListProps> = ({ gap, children }) => {
-  return (
-    <ul className={clsx(styles.list({ gap }))}>
-      {React.Children.map(children, (child) => (
-        <li>{child}</li>
-      ))}
-    </ul>
-  );
+type ListProps = React.HTMLAttributes<HTMLUListElement> & {
+  dir?: "x" | "y";
+  gap?: "none" | "xs" | "sm" | "md" | "lg" | "xl";
 };
+
+export const List: React.FC<ListProps> = ({ dir, gap, className, children, ...props }) => (
+  <ul className={clsx(styles.list({ gap, dir }), className)} {...props}>
+    {children}
+  </ul>
+);
+
+type ItemProps = React.LiHTMLAttributes<HTMLLIElement>;
+
+export const Item: React.FC<ItemProps> = ({ children, ...props }) => <li {...props}>{children}</li>;

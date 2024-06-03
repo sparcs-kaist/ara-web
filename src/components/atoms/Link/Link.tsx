@@ -8,11 +8,11 @@ type BaseLinkProps = Omit<
 > &
   LinkProps;
 
-type TextLinkProps = Omit<BaseLinkProps, "children"> & { children: string };
+type TextLinkProps = Omit<BaseLinkProps, "children"> & { text: string };
 
-export const TextLink: React.FC<TextLinkProps> = ({ children, ...props }) => (
+export const TextLink: React.FC<TextLinkProps> = ({ text, ...props }) => (
   <Link className={textLink} {...props}>
-    {children}
+    {text}
   </Link>
 );
 
