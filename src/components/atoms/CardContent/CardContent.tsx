@@ -10,7 +10,7 @@ export const CardContent: React.FC<{ title: string; link: string; children: Reac
 }) => {
   return (
     <div className={styles.box}>
-      <Link href={link}>
+      <Link href={link} className={styles.content}>
         <div className={styles.title}>{title}</div>
         <ChevronRight size={24} className={styles.icon} />
       </Link>
