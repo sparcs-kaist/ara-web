@@ -50,7 +50,7 @@ const Home: React.FC = () => {
           hasImage={true}
           hasFile={true}
           subInfo={{
-            responseStatus: ResponseStatus.AFTER_RESPONSE,
+            responseStatus: ResponseStatus.BEFORE_UPVOTES,
             author: "조얌얌",
             views: 100,
             date: "2021-09-01",
@@ -61,7 +61,7 @@ const Home: React.FC = () => {
           hasImage={true}
           hasFile={true}
           subInfo={{
-            responseStatus: ResponseStatus.AFTER_RESPONSE,
+            responseStatus: ResponseStatus.BEFORE_RESPONSE,
             board: "자유게시판",
             author: "조얌얌",
             date: "2021-09-01",

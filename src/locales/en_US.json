@@ -14,5 +14,10 @@
   },
   "hotArticles": "🔥 Hot Articles",
   "newArticles": "🕑 New Articles",
-  "view": "View"
+  "view": "View",
+  "responseStatus": {
+    "beforeUpvotes": "Polling",
+    "beforeResponse": "Preparing",
+    "afterResponse": "Answered"
+  }
 }

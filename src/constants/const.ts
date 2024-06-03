@@ -11,8 +11,8 @@ export const NameType = {
 export type NameTypeVal = (typeof NameType)[keyof typeof NameType];
 
 export const ResponseStatus = {
-  BEFORE_UPVOTES: "before_upvotes",
-  BEFORE_RESPONSE: "before_response",
-  AFTER_RESPONSE: "after_response",
+  BEFORE_UPVOTES: "beforeUpvotes",
+  BEFORE_RESPONSE: "beforeResponse",
+  AFTER_RESPONSE: "afterResponse",
 } as const;
 export type ResponseStatusVal = (typeof ResponseStatus)[keyof typeof ResponseStatus];

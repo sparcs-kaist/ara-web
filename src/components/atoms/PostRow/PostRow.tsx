@@ -69,7 +69,9 @@ export const PostRow: React.FC<PostRowProps> = (props) => {
           {props.subInfo && (
             <div className={styles.subInfo}>
               {props.subInfo.responseStatus && (
-                <span className={styles.responseStatus}>{props.subInfo.responseStatus}</span>
+                <span className={styles.responseStatus}>
+                  {t(`responseStatus.${props.subInfo.responseStatus}`)}
+                </span>
               )}
               {props.subInfo.board && <span className={styles.board}>{props.subInfo.board}</span>}
               <span>{props.subInfo.author}</span>

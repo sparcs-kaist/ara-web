@@ -14,5 +14,10 @@
   },
   "hotArticles": "🔥 지금 핫한 글",
   "newArticles": "🕑 방금 올라온 글",
-  "view": "조회"
+  "view": "조회",
+  "responseStatus": {
+    "beforeUpvotes": "달성 전",
+    "beforeResponse": "답변 준비 중",
+    "afterResponse": "답변 완료"
+  }
 }
