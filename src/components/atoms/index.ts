@@ -1,6 +1,5 @@
 export * from "./Button/Button";
 export * from "./Card/Card";
-export * from "./CardContent/CardContent";
 export * from "./Dialog/Dialog";
 export * from "./Divider/Divider";
 export * from "./Dropdown/Dropdown";

@@ -1,10 +1,12 @@
 "use client";
 
+import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 
-import { PostRow } from "@/components/atoms";
-import { Footer, Header, MainPageCard } from "@/components/molecules";
+import { Card, Divider, Item, List, PostRow } from "@/components/atoms";
+import { Footer, Header, TitledSection } from "@/components/molecules";
 import { ResponseStatus } from "@/constants/const";
+import { hotArticles, newArticles } from "@/mock/data";
 
 const Home: React.FC = () => {
   const { i18n } = useTranslation();
@@ -23,107 +25,69 @@ const Home: React.FC = () => {
           Switch Locale
         </button>
         <button onClick={switchLocale}>{i18n.language}</button>
-        <MainPageCard />
-        <div style={{ width: "40rem", padding: "2rem" }}>
-          <PostRow
-            type="withRank"
-            rank={2}
-            title={"임의의 제목"}
-            hasImage={true}
-            hasFile={true}
-            subInfo={{
-              board: "자유게시판",
-              author: "조얌얌",
-              views: 100,
-              date: "2021-09-01",
+        <Card>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(2, 1fr)",
+              gap: "1.6rem",
+              width: "100%",
             }}
-            counts={{
-              likes: 10,
-              dislikes: 2,
-              comments: 3,
-            }}
-          />
-          <PostRow
-            type="withPreview"
-            previewImage="https://via.placeholder.com/150"
-            profileImage="https://via.placeholder.com/150"
-            title={"임의의 제목"}
-            hasImage={true}
-            hasFile={true}
-            subInfo={{
-              responseStatus: ResponseStatus.BEFORE_UPVOTES,
-              author: "조얌얌",
-              views: 100,
-              date: "2021-09-01",
-            }}
-          />
-          <PostRow
-            type="withPreview"
-            previewImage="https://via.placeholder.com/150"
-            profileImage="https://via.placeholder.com/150"
-            title={"엄청나게 긴 임의의 제목을 한 번 써보려고 합니다 이 정도면 됐으려나 아닌가요"}
-            hasImage={true}
-            hasFile={true}
-            subInfo={{
-              responseStatus: ResponseStatus.BEFORE_UPVOTES,
-              author: "조얌얌",
-              views: 100,
-              date: "2021-09-01",
-            }}
-          />
-          <PostRow
-            type="withPreview"
-            profileImage="https://via.placeholder.com/150"
-            title={"임의의 제목"}
-            hasImage={true}
-            hasFile={true}
-            subInfo={{
-              responseStatus: ResponseStatus.BEFORE_UPVOTES,
-              author: "조얌얌",
-              views: 100,
-              date: "2021-09-01",
-            }}
-          />
-          <PostRow
-            type="withPreview"
-            profileImage="https://via.placeholder.com/150"
-            title={"임의의 제목"}
-            hasImage={true}
-            hasFile={true}
-            subInfo={{
-              responseStatus: ResponseStatus.BEFORE_UPVOTES,
-              author: "조얌얌",
-              views: 100,
-              date: "2021-09-01",
-            }}
-          />
-          <PostRow
-            title={"임의의 제목"}
-            hasImage={true}
-            hasFile={true}
-            subInfo={{
-              responseStatus: ResponseStatus.BEFORE_RESPONSE,
-              board: "자유게시판",
-              author: "조얌얌",
-              date: "2021-09-01",
-            }}
-            counts={{
-              likes: 10,
-              dislikes: 2,
-              comments: 3,
-            }}
-          />
-          <PostRow
-            title={"임의의 제목"}
-            hasImage={true}
-            hasFile={true}
-            subInfo={{
-              responseStatus: ResponseStatus.AFTER_RESPONSE,
-              board: "자유게시판",
-              author: "조얌얌",
-            }}
-          />
-        </div>
+          >
+            <TitledSection title={t("hotArticles")} link="/">
+              <List gap="sm">
+                {hotArticles.map((article, index) => (
+                  <>
+                    {index > 0 && (
+                      <Item>
+                        <Divider />
+                      </Item>
+                    )}
+                    <Item>
+                      <PostRow
+                        type="withRank"
+                        rank={index + 1}
+                        title={article.title}
+                        hasImage={true}
+                        hasFile={true}
+                        subInfo={{
+                          author: article.subInfo.author,
+                        }}
+                        counts={article.counts}
+                      />
+                    </Item>
+                  </>
+                ))}
+              </List>
+            </TitledSection>
+            <TitledSection title={t("newArticles")} link="/">
+              <List gap="sm">
+                {newArticles.map((article, index) => (
+                  <>
+                    {index > 0 && (
+                      <Item>
+                        <Divider />
+                      </Item>
+                    )}
+                    <Item>
+                      <PostRow
+                        rank={index + 1}
+                        title={article.title}
+                        hasImage={true}
+                        hasFile={true}
+                        subInfo={{
+                          board: article.subInfo.board,
+                          author: article.subInfo.author,
+                          date: article.subInfo.date,
+                        }}
+                      />
+                    </Item>
+                  </>
+                ))}
+              </List>
+            </TitledSection>
+          </div>
+        </Card>
       </main>
       <Footer />
     </>

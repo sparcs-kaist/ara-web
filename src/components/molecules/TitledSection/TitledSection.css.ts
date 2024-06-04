@@ -2,25 +2,21 @@ import { style } from "@vanilla-extract/css";
 
 import { sprinkles } from "@/styles/sprinkles.css";
 
-export const box = style([
+export const layout = style([
   sprinkles({
     display: "flex",
     flexDirection: "column",
-    gap: "lg",
+    gap: "md",
   }),
   {
-    alignItems: "flex-start",
-    flex: "1 0 0",
+    overflow: "hidden",
   },
 ]);
 
-export const content = sprinkles({
+export const title = sprinkles({
   display: "flex",
   alignItems: "center",
   gap: "sm",
-});
-
-export const title = sprinkles({
   color: "neutral",
   typeScale: "bannerTitle",
 });
@@ -28,15 +24,3 @@ export const title = sprinkles({
 export const icon = sprinkles({
   color: "neutralLight1",
 });
-
-export const posts = style([
-  sprinkles({
-    display: "flex",
-    flexDirection: "column",
-    gap: "md",
-  }),
-  {
-    alignItems: "flex-start",
-    alignSelf: "stretch",
-  },
-]);

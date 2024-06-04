@@ -8,7 +8,7 @@ export const row = style([
   sprinkles({
     display: "flex",
     alignItems: "center",
-    gap: "lg",
+    gap: "sm",
     padding: "none",
   }),
   {
@@ -91,9 +91,14 @@ export const titleText = style([
   },
 ]);
 
-export const titleImage = sprinkles({
-  color: "neutralLight1",
-});
+export const titleImage = style([
+  sprinkles({
+    color: "neutralLight1",
+  }),
+  {
+    flexShrink: 0,
+  },
+]);
 
 export const infoes = style([
   sprinkles({
