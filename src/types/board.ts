@@ -1,37 +1,69 @@
-import type { NameType } from "@/constants/enum";
+import { z } from "zod";
 
-export type BaseBoard = {
-  id: number;
-  slug: string;
-  koName: string;
-  enName: string;
-};
+import { NameType } from "@/constants/enum";
 
-export type Board = BaseBoard & {
-  isReadonly: boolean;
-  nameType: NameType;
-  group: BaseBoardGroup;
-  topics: {
-    id: number;
-    slug: string;
-    koName: string;
-    enName: string;
-  }[];
-  bannerImage: string;
-  koBannerDescription: string;
-  enBannerDescription: string;
-  topThreshold: number;
-  userReadable: boolean;
-  userWritable: boolean;
-};
+const baseSchema = z.object({
+  id: z.number(),
+  slug: z.string(),
+  koName: z.string(),
+  enName: z.string(),
+});
+type Base = z.infer<typeof baseSchema>;
+const baseTransformer = ({ id, slug, koName, enName }: Base) => ({
+  id,
+  slug,
+  name: {
+    ko: koName,
+    en: enName,
+  },
+});
 
-type BaseBoardGroup = {
-  id: number;
-  slug: string;
-  koName: string;
-  enName: string;
-};
+export const topicSchema = baseSchema;
 
-export type BoardGroup = BaseBoardGroup & {
-  boards: BaseBoard[];
-};
+const rawBoardSchema = baseSchema.extend({
+  isReadonly: z.boolean(),
+  nameType: z.nativeEnum(NameType),
+  group: baseSchema,
+  topics: topicSchema.array(),
+  bannerImage: z.string().url(),
+  koBannerDescription: z.string(),
+  enBannerDescription: z.string(),
+  topThreshold: z.number(),
+  userReadable: z.boolean(),
+  userWritable: z.boolean(),
+});
+type RawBoard = z.infer<typeof rawBoardSchema>;
+const boardTransformer = (board: RawBoard) => ({
+  id: board.id,
+  slug: board.slug,
+  name: {
+    ko: board.koName,
+    en: board.enName,
+  },
+  nameType: board.nameType,
+  group: baseTransformer(board.group),
+  topics: board.topics.map(baseTransformer),
+  banner: {
+    image: board.bannerImage,
+    description: {
+      ko: board.koBannerDescription,
+      en: board.enBannerDescription,
+    },
+  },
+  topThreshold: board.topThreshold,
+  isReadOnly: board.isReadonly,
+  isReadable: board.userReadable,
+  isWritable: board.userWritable,
+});
+export const boardSchema = rawBoardSchema.transform(boardTransformer);
+export type Board = z.infer<typeof boardSchema>;
+
+export const boardGroupSchema = baseSchema
+  .extend({
+    boards: rawBoardSchema.array(),
+  })
+  .transform(({ boards, ...rest }) => ({
+    ...baseTransformer(rest),
+    boards: boards.map(boardTransformer),
+  }));
+export type BoardGroup = z.infer<typeof boardGroupSchema>;

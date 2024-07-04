@@ -12,10 +12,10 @@ export const HoverDropdowns: React.FC = () => {
 
   return (
     <>
-      {boardGroups.map(({ id, koName, enName, boards }) => (
+      {boardGroups.map(({ id, name, boards }) => (
         <Item key={id}>
           <Dropdown
-            title={i18n.language === "ko_KR" ? koName : enName}
+            title={i18n.language === "ko_KR" ? name.ko : name.en}
             boards={boards}
             openOnHover={true}
           />
@@ -31,10 +31,10 @@ export const ClickableDropdowns: React.FC = () => {
 
   return (
     <>
-      {boardGroups?.map(({ id, koName, enName, boards }) => (
+      {boardGroups?.map(({ id, name, boards }) => (
         <Item key={id}>
           <Dropdown
-            title={i18n.language === "ko_KR" ? koName : enName}
+            title={i18n.language === "ko_KR" ? name.ko : name.en}
             boards={boards}
             openOnHover={false}
             isOpened={openedGroupId === id}

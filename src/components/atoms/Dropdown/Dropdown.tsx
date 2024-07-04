@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ChevronDown, ChevronUp } from "react-feather";
 import { useTranslation } from "react-i18next";
 
-import { BaseBoard } from "@/types";
+import type { Board } from "@/types";
 import i18n from "@/utils/i18n";
 
 import * as styles from "./Dropdown.css";
@@ -29,7 +29,7 @@ const Chevron: React.FC<ChevronProps> = ({ openOnHover, isOpened }) => {
 
 type DropdownProps = {
   title: string;
-  boards: BaseBoard[];
+  boards: Board[];
 } & (
   | { openOnHover: true; isOpened?: never; onClick?: never }
   | { openOnHover: false; isOpened: boolean; onClick: () => void }
@@ -60,7 +60,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
             {boards.map((board) => (
               <li key={board.id} className={styles.dropdownAnchorWrapper}>
                 <Link href="#" className={styles.dropdownAnchor}>
-                  {i18n.language === "ko_KR" ? board.koName : board.enName}
+                  {i18n.language === "ko_KR" ? board.name.ko : board.name.en}
                 </Link>
               </li>
             ))}
