@@ -33,8 +33,9 @@
     "react-feather": "^2.0.10",
     "react-i18next": "^14.1.0",
     "react-loading-skeleton": "^3.4.0",
-    "zod": "^3.22.4",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "ts-pattern": "^5.2.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.0",

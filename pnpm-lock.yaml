@@ -62,6 +62,9 @@ dependencies:
   react-router-dom:
     specifier: ^6.22.3
     version: 6.24.1(react-dom@18.2.0)(react@18.2.0)
+  ts-pattern:
+    specifier: ^5.2.0
+    version: 5.2.0
   zod:
     specifier: ^3.22.4
     version: 3.22.4
@@ -11171,6 +11174,10 @@ packages:
     resolution: {integrity: sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==}
     engines: {node: '>=6.10'}
     dev: true
+
+  /ts-pattern@5.2.0:
+    resolution: {integrity: sha512-aGaSpOlDcns7ZoeG/OMftWyQG1KqPVhgplhJxNCvyIXqWrumM5uIoOSarw/hmmi/T1PnuQ/uD8NaFHvLpHicDg==}
+    dev: false
 
   /ts-pnp@1.2.0(typescript@5.3.3):
     resolution: {integrity: sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==}
