@@ -37,9 +37,7 @@ export const vars = createGlobalTheme(":root", {
   },
   round: {
     none: "0",
-    sm: "0.8rem",
-    md: "1.2rem",
-    lg: "1.6rem",
-    half: "50%",
+    little: "0.8rem",
+    rounded: "1.6rem",
   },
 } as const);

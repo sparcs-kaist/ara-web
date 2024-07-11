@@ -7,6 +7,7 @@ export const primitiveColors = {
 
   gray50: "#fafafa",
   gray100: "#f0f0f0",
+  gray200: "#e9e9e9",
   gray300: "#dbdbdb",
   gray500: "#b5b5b5",
   gray600: "#666666",

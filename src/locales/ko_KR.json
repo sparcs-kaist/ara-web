@@ -1,5 +1,4 @@
 {
-  "hello": "안녕하세요",
   "header": {
     "all": "전체 글",
     "top": "인기글",
@@ -12,5 +11,13 @@
     "chatInquiry": "채팅 문의",
     "caution": "본 서비스 내의 모든 게시물은 KAIST 학내 구성원만 접근 가능하며, 외부로의 무단 유출 및 전재를 금합니다.",
     "contact": "기타 문의"
+  },
+  "hotArticles": "🔥 지금 핫한 글",
+  "newArticles": "🕑 방금 올라온 글",
+  "view": "조회",
+  "responseStatus": {
+    "beforeUpvotes": "달성 전",
+    "beforeResponse": "답변 준비 중",
+    "afterResponse": "답변 완료"
   }
 }
