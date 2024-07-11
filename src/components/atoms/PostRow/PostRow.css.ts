@@ -18,8 +18,8 @@ export const row = style([
 
 export const rank = style([
   sprinkles({
-    color: "brand",
     typeScale: "bannerTitle",
+    color: "brand",
   }),
   {
     width: "1.6rem",
@@ -52,19 +52,19 @@ export const primaryImage = recipe({
 });
 
 export const secondaryImage = style({
-  borderRadius: "50%",
   position: "absolute",
   top: "1.8rem",
   left: "1.8rem",
   boxShadow: "0px 2px 4px 0px rgba(0, 0, 0, 0.15)",
+  borderRadius: "50%",
   objectFit: "cover",
 });
 
 export const content = style([
   sprinkles({
     display: "flex",
-    alignItems: "flex-start",
     flexDirection: "column",
+    alignItems: "flex-start",
   }),
   {
     flex: "1 0 0",
@@ -81,8 +81,8 @@ export const title = sprinkles({
 
 export const titleText = style([
   sprinkles({
-    color: "neutral",
     typeScale: "default",
+    color: "neutral",
   }),
   {
     whiteSpace: "nowrap",
@@ -103,8 +103,8 @@ export const titleImage = style([
 export const infoes = style([
   sprinkles({
     display: "flex",
-    alignItems: "center",
     justifyContent: "space-between",
+    alignItems: "center",
   }),
   {
     height: "2.0rem",
@@ -116,8 +116,8 @@ export const subInfo = sprinkles({
   display: "flex",
   alignItems: "center",
   gap: "xs",
-  color: "neutralLight1",
   typeScale: "smallCaption",
+  color: "neutralLight1",
 });
 
 globalStyle(`${subInfo} > span:not(:last-child)::after`, {
@@ -141,38 +141,16 @@ export const count = sprinkles({
   gap: "sm",
 });
 
-export const likes = sprinkles({
+const countItem = sprinkles({
   display: "flex",
   alignItems: "center",
   gap: "xs",
-  color: "brand",
 });
+export const likes = style([countItem, sprinkles({ color: "brand" })]);
+export const dislikes = style([countItem, sprinkles({ color: "negative" })]);
+export const comments = style([countItem, sprinkles({ color: "neutral" })]);
 
-export const likeCount = sprinkles({
-  color: "brand",
+export const counts = sprinkles({
   typeScale: "smallCaption",
-});
-
-export const dislikes = sprinkles({
-  display: "flex",
-  alignItems: "center",
-  gap: "xs",
-  color: "negative",
-});
-
-export const dislikeCount = sprinkles({
-  color: "negative",
-  typeScale: "smallCaption",
-});
-
-export const comments = sprinkles({
-  display: "flex",
-  alignItems: "center",
-  gap: "xs",
-  color: "neutral",
-});
-
-export const commentCount = sprinkles({
-  color: "neutral",
-  typeScale: "smallCaption",
+  color: "inherit",
 });

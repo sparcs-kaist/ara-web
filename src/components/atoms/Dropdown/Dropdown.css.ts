@@ -24,8 +24,8 @@ export const dropdownButton = style([
     alignItems: "center",
   }),
   {
-    background: "none",
     border: "none",
+    background: "none",
     cursor: "pointer",
     selectors: {
       '&[aria-checked="true"]': {
@@ -70,10 +70,10 @@ export const dropdownAnchorList = style([
   sprinkles({
     display: "none",
     flexDirection: "column",
-    backgroundColor: "white",
-    padding: "xs",
-    borderRadius: "little",
     boxShadow: "banner",
+    borderRadius: "little",
+    padding: "xs",
+    backgroundColor: "white",
   }),
   {
     width: "15rem",
@@ -91,11 +91,11 @@ export const dropdownAnchorWrapper = sprinkles({
 
 export const dropdownAnchor = style([
   sprinkles({
+    borderRadius: "little",
     paddingX: "sm",
     paddingY: "xs",
-    typeScale: "small",
     backgroundColor: "white",
-    borderRadius: "little",
+    typeScale: "small",
   }),
   {
     flex: 1,

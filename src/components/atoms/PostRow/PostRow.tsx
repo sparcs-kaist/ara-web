@@ -1,9 +1,7 @@
-import clsx from "clsx";
 import Image from "next/image";
-import React from "react";
-import { Image as ImageIcon } from "react-feather";
-import { MessageSquare, ThumbsDown, ThumbsUp } from "react-feather";
+import { Image as ImageIcon, MessageSquare, ThumbsDown, ThumbsUp } from "react-feather";
 import { useTranslation } from "react-i18next";
+import { match } from "ts-pattern";
 
 import type { ResponseStatusVal } from "@/constants/const";
 
@@ -12,13 +10,13 @@ import * as styles from "./PostRow.css";
 type PostRowProps = {
   title: string;
 
-  hasImage: boolean;
-  hasFile: boolean;
+  hasImage?: boolean;
+  hasFile?: boolean;
 
   subInfo?: {
+    author: string;
     responseStatus?: ResponseStatusVal;
     board?: string;
-    author: string;
     views?: number;
     date?: string;
   };
@@ -29,7 +27,7 @@ type PostRowProps = {
   };
 } & (
   | { type: "withRank"; rank: number }
-  | { type: "withPreview"; previewImage?: string; profileImage: string }
+  | { type: "withPreview"; profileImage: string; previewImage?: string }
   | { type?: undefined }
 );
 
@@ -38,35 +36,35 @@ export const PostRow: React.FC<PostRowProps> = (props) => {
 
   return (
     <div className={styles.row}>
-      {props.type === "withRank" ? (
-        <div className={styles.rank}>{props.rank}</div>
-      ) : props.type === "withPreview" ? (
-        <div className={styles.previewImage}>
-          <Image
-            src={props.previewImage ?? props.profileImage}
-            className={styles.primaryImage({
-              borderRadius: props.previewImage ? "little" : "full",
-            })}
-            alt="preview"
-            width={36}
-            height={36}
-          />
-          {props.previewImage && (
+      {match(props)
+        .with({ type: "withRank" }, ({ rank }) => <div className={styles.rank}>{rank}</div>)
+        .with({ type: "withPreview" }, ({ profileImage, previewImage }) => (
+          <div className={styles.previewImage}>
             <Image
-              src={props.profileImage}
-              className={styles.secondaryImage}
+              src={previewImage ?? profileImage}
+              className={styles.primaryImage({
+                borderRadius: previewImage ? "little" : "full",
+              })}
               alt="preview"
-              width={20}
-              height={20}
+              width={36}
+              height={36}
             />
-          )}
-        </div>
-      ) : null}
-
+            {previewImage && (
+              <Image
+                src={profileImage}
+                className={styles.secondaryImage}
+                alt="preview"
+                width={20}
+                height={20}
+              />
+            )}
+          </div>
+        ))
+        .otherwise(() => null)}
       <div className={styles.content}>
         <div className={styles.title}>
           <div className={styles.titleText}>{props.title}</div>
-          {props.hasImage ? <ImageIcon size={16} className={styles.titleImage} /> : null}
+          {props.hasImage && <ImageIcon size={16} className={styles.titleImage} />}
         </div>
         <div className={styles.infoes}>
           {props.subInfo && (
@@ -90,15 +88,15 @@ export const PostRow: React.FC<PostRowProps> = (props) => {
             <div className={styles.count}>
               <div className={styles.likes}>
                 <ThumbsUp size={14} />
-                <div className={styles.likeCount}>{props.counts.likes}</div>
+                <div className={styles.counts}>{props.counts.likes}</div>
               </div>
               <div className={styles.dislikes}>
                 <ThumbsDown size={14} />
-                <div className={styles.dislikeCount}>{props.counts.dislikes}</div>
+                <div className={styles.counts}>{props.counts.dislikes}</div>
               </div>
               <div className={styles.comments}>
                 <MessageSquare size={14} />
-                <div className={styles.commentCount}>{props.counts.comments}</div>
+                <div className={styles.counts}>{props.counts.comments}</div>
               </div>
             </div>
           )}

@@ -5,15 +5,15 @@ import { sprinkles } from "@/styles/sprinkles.css";
 export const card = style([
   sprinkles({
     display: "flex",
-    padding: "xl",
     alignItems: "flex-start",
     gap: "xl",
     borderRadius: "rounded",
+    padding: "xl",
   }),
   {
-    width: "61.6rem",
+    boxShadow: "0 2px 8px 0 rgb(0 0 0 / 0.1)",
     border: "0.1rem solid neutralLight3",
-    boxShadow: "0px 2px 8px 0px rgba(0, 0, 0, 0.10)",
+    // width: "61.6rem",
     backgroundColor: "white",
   },
 ]);

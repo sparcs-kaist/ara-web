@@ -1,19 +1,21 @@
 "use client";
 
 import { t } from "i18next";
+import { Fragment } from "react";
 import { useTranslation } from "react-i18next";
 
 import { Card, Divider, Item, List, PostRow } from "@/components/atoms";
 import { Footer, Header, TitledSection } from "@/components/molecules";
-import { ResponseStatus } from "@/constants/const";
 import { hotArticles, newArticles } from "@/mock/data";
 
 const Home: React.FC = () => {
   const { i18n } = useTranslation();
+
   const switchLocale = () => {
     const currentLanguage = i18n.language;
     i18n.changeLanguage(currentLanguage === "en_US" ? "ko_KR" : "en_US");
   };
+
   return (
     <>
       <Header />
@@ -37,7 +39,7 @@ const Home: React.FC = () => {
             <TitledSection title={t("hotArticles")} link="/">
               <List gap="sm">
                 {hotArticles.map((article, index) => (
-                  <>
+                  <Fragment key={article.id}>
                     {index > 0 && (
                       <Item>
                         <Divider />
@@ -56,14 +58,14 @@ const Home: React.FC = () => {
                         counts={article.counts}
                       />
                     </Item>
-                  </>
+                  </Fragment>
                 ))}
               </List>
             </TitledSection>
             <TitledSection title={t("newArticles")} link="/">
               <List gap="sm">
                 {newArticles.map((article, index) => (
-                  <>
+                  <Fragment key={article.id}>
                     {index > 0 && (
                       <Item>
                         <Divider />
@@ -82,7 +84,7 @@ const Home: React.FC = () => {
                         }}
                       />
                     </Item>
-                  </>
+                  </Fragment>
                 ))}
               </List>
             </TitledSection>

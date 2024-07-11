@@ -7,14 +7,12 @@ export const TitledSection: React.FC<{
   title: string;
   link: string;
   children: React.ReactNode;
-}> = ({ title, link, children }) => {
-  return (
-    <div className={styles.layout}>
-      <Link href={link} className={styles.title}>
-        <div>{title}</div>
-        <ChevronRight size={24} className={styles.icon} />
-      </Link>
-      {children}
-    </div>
-  );
-};
+}> = ({ title, link, children }) => (
+  <div className={styles.layout}>
+    <Link href={link} className={styles.header}>
+      <h2 className={styles.title}>{title}</h2>
+      <ChevronRight size={24} className={styles.icon} />
+    </Link>
+    {children}
+  </div>
+);

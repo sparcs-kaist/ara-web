@@ -13,12 +13,15 @@ export const layout = style([
   },
 ]);
 
-export const title = sprinkles({
+export const header = sprinkles({
   display: "flex",
   alignItems: "center",
-  gap: "sm",
-  color: "neutral",
+});
+
+export const title = sprinkles({
+  marginRight: "xs",
   typeScale: "bannerTitle",
+  color: "neutral",
 });
 
 export const icon = sprinkles({
